@@ -4,16 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.tools</groupId>
-  <artifactId>open</artifactId>
-  <packaging>pom</packaging>
+  <artifactId>redis-tools</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <modules>
-    <module>redis-tools</module>
-    <module>open-main</module>
-  </modules>
 
-    <name>open</name>
-  <!-- FIXME change it to the project's website -->
+  <name>redis-tools</name>
   <url>http://www.example.com</url>
 
   <properties>
@@ -21,6 +15,7 @@
   </properties>
 
   <dependencies>
+
     <!-- 工具 -->
     <dependency>
       <groupId>commons-lang</groupId>
@@ -28,15 +23,20 @@
       <version>2.6</version>
     </dependency>
 
-    <!-- junit单元测试 -->
+    <!-- jedis -->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
+    <!-- Junit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
 
-  <dependencyManagement>
-  </dependencyManagement>
+  </dependencies>
 </project>
