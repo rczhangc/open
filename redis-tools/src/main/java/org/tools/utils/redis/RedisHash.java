@@ -2,6 +2,8 @@ package org.tools.utils.redis;
 
 import redis.clients.jedis.Jedis;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -9,12 +11,21 @@ import java.util.Set;
 /**
  * @author barnak
  */
-public class RedisHash {
+public class RedisHash<K,V> extends RedisObjects {
 
     private final Jedis redis;
 
-    public RedisHash(Jedis redis) {
+    private final String key;
+
+    private final Type keyType;
+
+    private final Type valueType;
+
+    public RedisHash(Jedis redis, String key, Type keyType, Type valueType) {
         this.redis = redis;
+        this.key = CACHE_MAP + key;
+        this.keyType = keyType;
+        this.valueType = valueType;
     }
 
     /**
@@ -22,12 +33,11 @@ public class RedisHash {
      * Redis Hdel 命令用于删除哈希表 key 中的一个或多个指定字段，不存在的字段将被忽略
      * version >= 2.0.0
      *
-     * @param key 字段
      * @param field 值
      * @return 被成功删除字段的数量，不包括被忽略的字段
      */
-    public Long hDel(String key, String ... field) {
-        Long hDel = redis.hdel(key, field);
+    public Long hDel(K ... field) {
+        Long hDel = redis.hdel(key, getString(field));
         redis.close();
         return hDel;
     }
@@ -37,12 +47,11 @@ public class RedisHash {
      * Redis Hexists 命令用于查看哈希表的指定字段是否存在
      * version >= 2.0.0
      *
-     * @param key 字段
      * @param field 值
      * @return 如果哈希表含有给定字段，返回 1 。 如果哈希表不含有给定字段，或 key 不存在，返回 0
      */
-    public Boolean hExists(String key, String field){
-        Boolean hExists = redis.hexists(key, field);
+    public Boolean hExists(K field){
+        Boolean hExists = redis.hexists(key, getString(field));
         redis.close();
         return hExists;
     }
@@ -52,14 +61,13 @@ public class RedisHash {
      * Redis Hget 命令用于返回哈希表中指定字段的值
      * version >= 2.0.0
      *
-     * @param key 字段
      * @param field 值
      * @return 返回给定字段的值。如果给定的字段或 key 不存在时，返回 nil
      */
-    public String hGet(String key, String field) {
-        String hGet = redis.hget(key, field);
+    public V hGet(K field) {
+        String hGet = redis.hget(key, getString(field));
         redis.close();
-        return hGet;
+        return getObjects(hGet,valueType);
     }
 
     /**
@@ -72,13 +80,12 @@ public class RedisHash {
      * 本操作的值被限制在 64 位(bit)有符号数字表示之内
      * version >= 2.0.0
      *
-     * @param key 字段
      * @param field 值
      * @param increment 增量
      * @return 执行 HINCRBY 命令之后，哈希表中字段的值
      */
-    public Long hIncrBy(String key, String field, long increment) {
-        Long aLong = redis.hincrBy(key, field, increment);
+    public Long hIncrBy(K field, long increment) {
+        Long aLong = redis.hincrBy(key, getString(field), increment);
         redis.close();
         return aLong;
     }
@@ -89,13 +96,12 @@ public class RedisHash {
      * 如果指定的字段不存在，那么在执行命令前，字段的值被初始化为 0
      * version >= 2.6.0
      *
-     * @param key 字段
      * @param field 值
      * @param increment 增量
      * @return 执行 Hincrbyfloat 命令之后，哈希表中字段的值
      */
-    public Double hIncrByFloat(String key, String field, double increment) {
-        Double aDouble = redis.hincrByFloat(key, field, increment);
+    public Double hIncrByFloat(K field, double increment) {
+        Double aDouble = redis.hincrByFloat(key, getString(field), increment);
         redis.close();
         return aDouble;
     }
@@ -105,13 +111,12 @@ public class RedisHash {
      * Redis Hkeys 命令用于获取哈希表中的所有域（field）
      * version >= 2.0.0
      *
-     * @param key 字段
      * @return 包含哈希表中所有域（field）列表。 当 key 不存在时，返回一个空列表
      */
-    public Set<String> hKeys(String key) {
+    public Set<K> hKeys() {
         Set<String> hKeys = redis.hkeys(key);
         redis.close();
-        return hKeys;
+        return getObjects(hKeys, keyType);
     }
 
     /**
@@ -119,10 +124,9 @@ public class RedisHash {
      * Redis Hlen 命令用于获取哈希表中字段的数量
      * version >= 2.0.0
      *
-     * @param key 字段
      * @return 哈希表中字段的数量。 当 key 不存在时，返回 0
      */
-    public Long hLen(String key) {
+    public Long hLen() {
         Long hLen = redis.hlen(key);
         redis.close();
         return hLen;
@@ -134,14 +138,13 @@ public class RedisHash {
      * 如果指定的字段不存在于哈希表，那么返回一个 nil 值
      * version >= 2.0.0
      *
-     * @param key 字段
      * @param field 值
      * @return 一个包含多个给定字段关联值的表，表值的排列顺序和指定字段的请求顺序一样
      */
-    public List<String> hmGet(String key, String ... field) {
+    public List<V> hmGet(String ... field) {
         List<String> hmGet = redis.hmget(key, field);
         redis.close();
-        return hmGet;
+        return getObjects(hmGet, valueType);
     }
 
     /**
@@ -151,12 +154,11 @@ public class RedisHash {
      * 如果哈希表不存在，会创建一个空哈希表，并执行 HMSET 操作
      * version >= 2.0.0
      *
-     * @param key 字段
      * @param map {@link Map}
      * @return 如果命令执行成功，返回 OK
      */
-    public String hmSet(String key, Map<String, String> map) {
-        String hmSet = redis.hmset(key, map);
+    public String hmSet(Map<K, V> map) {
+        String hmSet = redis.hmset(key, getMap(map));
         redis.close();
         return hmSet;
     }
@@ -168,13 +170,12 @@ public class RedisHash {
      * 如果字段已经存在于哈希表中，旧值将被覆盖
      * version >= 2.0.0
      *
-     * @param key
      * @param field
      * @param value
      * @return 如果字段是哈希表中的一个新建字段，并且值设置成功，返回 1 。 如果哈希表中域字段已经存在且旧值已被新值覆盖，返回 0
      */
-    public Long hSet(String key, String field, String value) {
-        Long hSet = redis.hset(key, field, value);
+    public Long hSet(K field, V value) {
+        Long hSet = redis.hset(key, getString(field), getString(value));
         redis.close();
         return hSet;
     }
@@ -187,13 +188,12 @@ public class RedisHash {
      * 如果 key 不存在，一个新哈希表被创建并执行 HSETNX 命令
      * version >= 2.0.0
      *
-     * @param key
      * @param field
      * @param value
      * @return 设置成功，返回 1 。 如果给定字段已经存在且没有操作被执行，返回 0
      */
-    public Long hSetNx(String key, String field, String value) {
-        Long hSetNx = redis.hsetnx(key, field, value);
+    public Long hSetNx(K field, V value) {
+        Long hSetNx = redis.hsetnx(key, getString(field), getString(value));
         redis.close();
         return hSetNx;
     }
@@ -203,13 +203,19 @@ public class RedisHash {
      * Redis Hvals 命令返回哈希表所有域(field)的值
      * version >= 2.0.0
      *
-     * @param key
      * @return 一个包含哈希表中所有域(field)值的列表。 当 key 不存在时，返回一个空表
      */
-    public List<String> hValS(String key) {
+    public List<V> hValS() {
         List<String> hValS = redis.hvals(key);
         redis.close();
-        return hValS;
+        return getObjects(hValS,valueType);
     }
 
+    private Map<String, String> getMap(Map<K,V> map) {
+        Map<String, String> hash = new HashMap<>(map.size());
+        for (Map.Entry<K,V> entry : map.entrySet()) {
+            hash.put(getString(entry.getKey()), getString(entry.getValue()));
+        }
+        return hash;
+    }
 }

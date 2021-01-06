@@ -33,8 +33,8 @@ public class RedisUtils {
         //  JRedisPoolConfig.REDIS_PORT);
     }
 
-    public static RedisHash getHash() {
-        return new RedisHash(jedisPool.getResource());
+    public static <K,V> RedisHash<K,V> getHash(String key, Class<K> keyClazz, Class<?> ... valueClazz) {
+        return new RedisHash<K,V>(jedisPool.getResource(),key,JsonUtils.buildType(keyClazz),JsonUtils.buildType(valueClazz));
     }
 
 }
