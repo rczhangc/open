@@ -1,13 +1,11 @@
 package org.tools.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.tools.utils.redis.RedisHash;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author barnak
@@ -17,6 +15,7 @@ public class RedisUtilsTest extends TestCase {
     @Test
     public void test() {
         String cacheMapKey = "CACHE_MAP";
+        RedisHash<String, Long> integerMap = RedisUtils.getHash("INTEGER_MAP", String.class, Long.class);
         RedisHash<String, List<Integer>> hash = RedisUtils.getHash(cacheMapKey,String.class, List.class, Integer.class);
         String key1 = "HAHA";
         String key2 = "HEHE";
@@ -29,29 +28,31 @@ public class RedisUtilsTest extends TestCase {
         key1Map.put(key1,value1);
         key1Map.put(key2,value2);
 
+        Long aLong3 = hash.hDel(key1, key2, key3);
 
         Long aLong = hash.hSet(key3, value3);
         Long aLong1 = hash.hSetNx(key3, value3);
         Boolean aBoolean = hash.hExists(key1);
         List<Integer> integers = hash.hGet(key1);
-        Long aLong2 = hash.hIncrBy(key1, 1);
-        Double aDouble = hash.hIncrByFloat(key1, 1.0);
+
         List<List<Integer>> lists = hash.hmGet(key1, key2);
         String s = hash.hmSet(key1Map);
 
-        hash.hKeys();
-        hash.hLen();
-        hash.hValS();
-        hash.hDel();
-
-//        hash.hSet()
-
-//        Long key = hash.hSet("666", "555", "555");
-//        Boolean aBoolean = hash.hExists("666", "555");
-//        Boolean bBoolean = hash.hExists("666", "555");
+        Set<String> strings = hash.hKeys();
+        Long aLong4 = hash.hLen();
+        List<List<Integer>> lists1 = hash.hValS();
 
 
+        Long aLong2 = hash.hIncrBy(key1, 1);
+        Double aDouble = hash.hIncrByFloat(key1, 1.0);
 
+        Long aLong5 = hash.hDel(key1, key2, key3);
+
+    }
+
+    public static void main(String[] args) {
+
+        String string = JSONObject.parseObject("String", String.class);
     }
 
 }
