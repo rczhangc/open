@@ -10,6 +10,7 @@
   <modules>
     <module>redis-tools</module>
     <module>open-main</module>
+      <module>open-common</module>
   </modules>
 
     <name>open</name>
