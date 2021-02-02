@@ -1,35 +1,25 @@
 package generator;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
-import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
-import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.sun.javafx.PlatformUtil;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author barnak
  */
 public class CodeGenerator {
 
-    /**
-     * modular 名字
-     */
-    public static final String MODULAR_NAME = "";
 
     /**
      * 基本路径
      */
-    public static final String SRC_MAIN_JAVA = "open-main/src/main/java/";
+    public static final String SRC_MAIN_JAVA = "src/main/java";
 
     /**
      * 作者
@@ -46,23 +36,28 @@ public class CodeGenerator {
     public static final String JDBC_PASSWORD = "123456";
 
     public static void main(String[] args) {
-        String moduleName = scanner("模块名");
-        String tableName = scanner("表名");
-        String tablePrefix = scanner("表前缀(无前缀输入#)").replaceAll("#", "");
-        autoGenerator(moduleName, tableName, tablePrefix);
+//        String moduleName = scanner("模块名");
+//        String tableName = scanner("表名");
+//        String tablePrefix = scanner("表前缀(无前缀输入#)").replaceAll("#", "");
+//        autoGenerator(moduleName, tableName, tablePrefix);
+        autoGenerator("user", "user", "#");
+
+        ModuleInfo moduleInfo = new ModuleInfo();
+        moduleInfo.setModuleName("user");
+        moduleInfo.setTableNameList(Collections.singletonList("user"));
+
+
     }
 
-    public static void autoGenerator(String moduleName, String tableName, String tablePrefix) {
+    public static void autoGenerator(String module, String moduleName, String tablePrefix, String ... tableName) {
         new AutoGenerator()
                 .setDataSource(getDataSourceConfig())
-                .setStrategy(getStrategyConfig(tableName, tablePrefix))
+                .setStrategy(getStrategyConfig(tablePrefix, tableName))
                 .setPackageInfo(getPackageConfig(moduleName))
                 .setTemplate(getTemplateConfig())
-                .setGlobalConfig(getGlobalConfig())
-//                .setCfg(getInjectionConfig(moduleName))
+                .setGlobalConfig(getGlobalConfig(module))
                 .execute();
     }
-
 
     // ----------------------------------------------------配置信息------------------------------------------------------
 
@@ -86,7 +81,7 @@ public class CodeGenerator {
      * @param tablePrefix 表前缀
      * @return {@link StrategyConfig}
      */
-    private static StrategyConfig getStrategyConfig(String tableName, String tablePrefix) {
+    private static StrategyConfig getStrategyConfig(String tablePrefix, String ... tableName) {
         return new StrategyConfig()
                 .setNaming(NamingStrategy.underline_to_camel)
                 .setColumnNaming(NamingStrategy.underline_to_camel)
@@ -121,7 +116,8 @@ public class CodeGenerator {
      */
     private static TemplateConfig getTemplateConfig() {
         return new TemplateConfig()
-                .setController("/templates-generator/controller.java.vm")
+                //.setController("/templates-generator/controller.java.vm")
+                .setController("")
                 .setService("/templates-generator/service.java.vm")
                 .setServiceImpl("/templates-generator/serviceImpl.java.vm")
                 .setEntity("/templates-generator/entity.java.vm")
@@ -134,9 +130,9 @@ public class CodeGenerator {
      *
      * @return {@link GlobalConfig}
      */
-    private static GlobalConfig getGlobalConfig() {
+    private static GlobalConfig getGlobalConfig(String module) {
         String projectPath = System.getProperty("user.dir");
-        String filePath = projectPath + "/" + MODULAR_NAME + SRC_MAIN_JAVA;
+        String filePath = projectPath + "/" + module +"/"+ SRC_MAIN_JAVA +"/";
         if (PlatformUtil.isWindows()) {
             filePath = filePath.replaceAll("/+|\\\\+", "\\\\");
         } else {
@@ -144,61 +140,59 @@ public class CodeGenerator {
         }
         return new GlobalConfig()
                 .setOutputDir(filePath)
-                .setDateType(DateType.ONLY_DATE)
+                .setDateType(DateType.TIME_PACK)
                 .setAuthor(AUTHOR)
-                .setSwagger2(true)
+                .setSwagger2(false)
                 .setBaseResultMap(true)
                 .setBaseColumnList(true)
-                .setIdType(IdType.UUID)
+                .setIdType(IdType.ASSIGN_UUID)
                 .setOpen(false);
     }
 
     /**
-     * 注入配置
+     * 模块信息
      *
-     * @param moduleName 模块名称
-     * @return {@link InjectionConfig}
+     * @author barnak
      */
-    private static InjectionConfig getInjectionConfig(final String moduleName) {
-        Map<String, Object> maps = new HashMap<>();
-        maps.put("dateTime", getDateTime());
-        final String projectPath = System.getProperty("user.dir");
-        List<FileOutConfig> fileOutConfigList = new ArrayList<>();
-        // 自定义配置会被优先输出
-        fileOutConfigList.add(new FileOutConfig("/templates/mapper.xml.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输出文件名，如果entity设置了前后缀，此次注意xml的名称也会跟着发生变化
-                return projectPath + SRC_MAIN_JAVA + moduleName + "/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
-            }
-        });
+    public static class ModuleInfo {
 
-        return new InjectionConfig() {
-            @Override
-            public void initMap() {
-                setMap(maps);
-                setFileOutConfigList(fileOutConfigList);
-            }
-        };
-    }
+        /**
+         * 模块名称
+         */
+        private String moduleName;
 
-    private static String getDateTime() {
-        LocalDateTime localDate = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return localDate.format(formatter);
-    }
+        /**
+         * 表前缀
+         */
+        private String tablePrefix;
 
+        /**
+         * 模块下表名称
+         */
+        private List<String> tableNameList;
 
-
-    private static String scanner(String tip) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("please input " + tip + " : ");
-        if (scanner.hasNext()) {
-            String ipt = scanner.next();
-            if (StringUtils.isNotBlank(ipt)) {
-                return ipt;
-            }
+        public String getModuleName() {
+            return moduleName;
         }
-        throw new MybatisPlusException("please input the correct " + tip + ". ");
+
+        public void setModuleName(String moduleName) {
+            this.moduleName = moduleName;
+        }
+
+        public String getTablePrefix() {
+            return tablePrefix;
+        }
+
+        public void setTablePrefix(String tablePrefix) {
+            this.tablePrefix = tablePrefix;
+        }
+
+        public List<String> getTableNameList() {
+            return tableNameList;
+        }
+
+        public void setTableNameList(List<String> tableNameList) {
+            this.tableNameList = tableNameList;
+        }
     }
 }

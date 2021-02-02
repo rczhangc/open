@@ -10,10 +10,12 @@
   <modules>
     <module>redis-tools</module>
     <module>open-main</module>
-      <module>open-common</module>
+    <module>open-common</module>
+    <module>open-dao</module>
+    <module>open-model</module>
   </modules>
 
-    <name>open</name>
+  <name>open</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -22,26 +24,64 @@
     <java.version>1.8</java.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <mybatis-plus.version>3.4.1</mybatis-plus.version>
+    <mysql.connector.java.version>8.0.19</mysql.connector.java.version>
+    <springfox-swagger.version>2.9.2</springfox-swagger.version>
+    <velocity-core.version>2.2</velocity-core.version>
+    <springboot-test.version>2.4.1</springboot-test.version>
+    <open-model.version>1.0-SNAPSHOT</open-model.version>
+    <open-dao.version>1.0-SNAPSHOT</open-dao.version>
   </properties>
 
-  <dependencies>
-    <!-- 工具 -->
-    <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
-    </dependency>
 
-    <!-- junit单元测试 -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
+  <dependencies>
   </dependencies>
 
   <dependencyManagement>
+    <dependencies>
+      <!-- Open Model -->
+      <dependency>
+        <groupId>org.tools</groupId>
+        <artifactId>open-model</artifactId>
+        <version>${open-model.version}</version>
+      </dependency>
+      <!-- Open Dao -->
+      <dependency>
+        <groupId>org.tools</groupId>
+        <artifactId>open-dao</artifactId>
+        <version>${open-dao.version}</version>
+      </dependency>
+      <!-- MybatisPlus 核心库 -->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <!-- MybatisPlus Generator-->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <!-- 提供mysql驱动 -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.connector.java.version}</version>
+      </dependency>
+      <!-- Velocity -->
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity-engine-core</artifactId>
+        <version>${velocity-core.version}</version>
+      </dependency>
+      <!-- SpringBoot Test -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${springboot-test.version}</version>
+      </dependency>
+    </dependencies>
   </dependencyManagement>
 
   <build>
