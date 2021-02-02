@@ -76,6 +76,15 @@
 			<artifactId>springfox-swagger2</artifactId>
 			<version>${springfox-swagger.version}</version>
 		</dependency>
+
+		<!-- Elasticsearch -->
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+
+		<!-- Junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
