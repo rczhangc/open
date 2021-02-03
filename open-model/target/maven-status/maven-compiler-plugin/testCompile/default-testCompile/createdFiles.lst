@@ -1,0 +1,11 @@
+generator/module/BaseGenerator.class
+generator/module/ModelGenerator.class
+generator/module/DaoGenerator.class
+generator/module/MavenModuleEnum.class
+generator/GeneratorConstants.class
+generator/module/ControllerGenerator.class
+generator/module/ServiceGenerator.class
+generator/ModuleInfo.class
+generator/DataBaseConstants.class
+generator/module/CommonGenerator.class
+generator/CodeGenerator.class
