@@ -2,7 +2,7 @@ package org.tools.propagation.supports;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.tools.main.propagation.required.RequiredServiceA;
+import org.tools.propagation.required.RequiredServiceA;
 import org.tools.propagation.PropagationBehaviorBaseTest;
 
 /**

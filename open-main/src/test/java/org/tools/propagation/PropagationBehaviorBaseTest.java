@@ -4,14 +4,14 @@ import com.alibaba.fastjson.JSON;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.tools.main.OpenMainApplication;
-import org.tools.main.user.entity.User;
-import org.tools.main.user.service.IUserService;
+import org.tools.dao.user.entity.UserDO;
+import org.tools.OpenMainApplication;
+import org.tools.service.user.UserService;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 
 /**
@@ -22,25 +22,25 @@ import java.util.Arrays;
 @ActiveProfiles("test")
 public class PropagationBehaviorBaseTest {
 
-    @Autowired
-    private IUserService userService;
+    @Resource
+    private UserService userService;
 
-    protected User beforeUser1;
+    protected UserDO beforeUser1;
 
-    protected User beforeUser2;
+    protected UserDO beforeUser2;
 
-    protected User afterUser1;
+    protected UserDO afterUser1;
 
-    protected User afterUser2;
+    protected UserDO afterUser2;
 
     @Before
     public void initDate() {
         System.out.println("初始化用户信息开始");
-        User user1 = new User();
+        UserDO user1 = new UserDO();
         user1.setId(1L);
         user1.setName("Jone");
 
-        User user2 = new User();
+        UserDO user2 = new UserDO();
         user2.setId(2L);
         user2.setName("Jack");
         userService.updateBatchById(Arrays.asList(user1,user2));
@@ -58,8 +58,8 @@ public class PropagationBehaviorBaseTest {
     }
 
     public void saveUserInfo(boolean isBefore) {
-        User user1 = userService.getById(1L);
-        User user2 = userService.getById(2L);
+        UserDO user1 = userService.getById(1L);
+        UserDO user2 = userService.getById(2L);
         if (isBefore) {
             beforeUser1 = user1;
             beforeUser2 = user2;

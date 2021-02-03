@@ -4,11 +4,7 @@ package ${package.Entity};
 import ${pkg};
 #end
 import com.baomidou.mybatisplus.annotation.*;
-#if(${swagger2})
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonInclude;
-#end
+
 #if(${entityLombokModel})
 import lombok.Data;
 #end
@@ -22,10 +18,6 @@ import lombok.Data;
 @Data
 #end
 @TableName("${table.name}")
-#if(${swagger2})
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel(value="${entity}对象", description="$!{table.comment}")
-#end
 #if(${superEntityClass})
 public class ${entity} extends ${superEntityClass}#if(${activeRecord})<${entity}>#end {
 #elseif(${activeRecord})
@@ -42,13 +34,9 @@ private static final long serialVersionUID = 1L;
 #set($keyPropertyName=${field.propertyName})
 #end
 #if("$!field.comment" != "")
-    #if(${swagger2})
-    @ApiModelProperty(value = "${field.comment}")
-    #else
     /**
      * ${field.comment}
      */
-    #end
 #end
 #if(${field.keyFlag})
 ## 主键

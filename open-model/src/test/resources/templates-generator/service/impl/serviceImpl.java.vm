@@ -1,9 +1,8 @@
 package ${package.ServiceImpl};
 
-import ${package.Entity}.${entity};
 import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
-import ${superServiceImplClassPackage};
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,12 +11,11 @@ import org.springframework.stereotype.Service;
  * @author ${author}
  */
 @Service
-#if(${kotlin})
-open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperName}, ${entity}>(), ${table.serviceName} {
+class ${table.serviceImplName} implements ${table.serviceName} {
+#set( $bo = ${table.mapperName} )
+#set( $do = $bo.substring(0,1).toLowerCase() + $bo.substring(1) )
+
+    @Autowired
+    private ${table.mapperName} ${do};
 
 }
-#else
-public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
-
-}
-#end

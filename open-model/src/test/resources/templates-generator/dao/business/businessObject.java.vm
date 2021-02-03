@@ -1,0 +1,35 @@
+package ${package.Service};
+
+import com.baomidou.mybatisplus.annotation.*;
+import ${package.Mapper}.entity.${entity};
+import java.io.Serializable;
+#if(${entityLombokModel})
+import lombok.Data;
+#end
+
+/**
+ * $!{table.comment}实体类BO
+ *
+ * @author ${author}
+ */
+#if(${entityLombokModel})
+@Data
+#end
+public class ${table.serviceName} extends ${entity} implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+#if(!${entityLombokModel})
+    @Override
+    public String toString() {
+        return "${table.serviceName}{" +
+#foreach($field in ${table.fields})
+#if($!{foreach.index}==0)
+                "${field.propertyName}=" + super.get${field.capitalName}() +
+#else
+                ", ${field.propertyName}=" + super.get${field.capitalName}() +
+#end
+#end
+                "}";
+    }
+#end
+}

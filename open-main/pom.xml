@@ -3,12 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<artifactId>open</artifactId>
+		<groupId>org.tools</groupId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>org.tools</groupId>
+
 	<artifactId>open-main</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>open-main</name>
@@ -90,6 +89,18 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tools</groupId>
+			<artifactId>open-service</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tools</groupId>
+			<artifactId>open-model</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 	</dependencies>
