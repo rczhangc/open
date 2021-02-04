@@ -35,7 +35,6 @@ public class CommonGenerator extends BaseGenerator {
     protected void setPackageConfig(PackageConfig packageConfig, String moduleName) {
         packageConfig.setModuleName("")
                 .setMapper("dao."+ moduleName)
-                .setParent("org.tools")
                 .setService("manager."+ moduleName)
                 .setServiceImpl("manager."+ moduleName +".impl")
                 .setEntity("manager."+ moduleName +".business");

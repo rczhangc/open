@@ -78,7 +78,7 @@ public abstract class BaseGenerator {
     private PackageConfig getPackageConfig(String moduleName) {
         PackageConfig packageConfig =  new PackageConfig()
                 .setModuleName("")
-                .setParent("org.tools")
+                .setParent(GeneratorConstants.PARENT_PACKAGE)
                 .setService("service."+ moduleName)
                 .setServiceImpl("service."+ moduleName +".impl")
                 .setController("controller."+ moduleName)

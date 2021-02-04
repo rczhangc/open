@@ -2,8 +2,9 @@ package ${package.ServiceImpl};
 
 import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * $!{table.comment}服务实现类
@@ -15,7 +16,7 @@ class ${table.serviceImplName} implements ${table.serviceName} {
 #set( $bo = ${table.mapperName} )
 #set( $do = $bo.substring(0,1).toLowerCase() + $bo.substring(1) )
 
-    @Autowired
+    @Resource
     private ${table.mapperName} ${do};
 
 }

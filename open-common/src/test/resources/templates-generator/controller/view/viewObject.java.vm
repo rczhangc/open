@@ -1,9 +1,5 @@
 package ${package.Entity};
 
-#foreach($pkg in ${table.importPackages})
-import ${pkg};
-#end
-import com.baomidou.mybatisplus.annotation.*;
 #if(${swagger2})
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -12,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 #if(${entityLombokModel})
 import lombok.Data;
 #end
+
+import java.io.Serializable;
 
 /**
  * $!{table.comment}实体类

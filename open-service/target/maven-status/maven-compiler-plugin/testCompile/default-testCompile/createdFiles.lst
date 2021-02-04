@@ -1,2 +1,2 @@
-org\tools\service\user\UserServiceTest.class
-org\tools\BaseUnitTest.class
+org\open\boot\service\user\UserServiceTest.class
+org\open\boot\BaseUnitTest.class

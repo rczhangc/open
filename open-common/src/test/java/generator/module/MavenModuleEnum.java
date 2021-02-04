@@ -9,7 +9,7 @@ public enum MavenModuleEnum {
     OPEN_DAO("open-dao","数据库服务", DaoGenerator.class),
     OPEN_COMMON("open-common","通用模块", CommonGenerator.class),
     OPEN_SERVICE("open-service","业务服务模块", ServiceGenerator.class),
-    OPEN_MAIN("open-main","业务处理", ControllerGenerator.class),
+    OPEN_MAIN("open-controller","业务处理", ControllerGenerator.class),
     ;
 
     MavenModuleEnum(String modulePackage, String moduleDesc, Class<? extends BaseGenerator> clazz) {

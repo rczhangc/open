@@ -3,7 +3,6 @@ package ${package.Service};
 #set( $bo = ${entity} )
 #set( $do = $bo.replace('BO','DO') )
 import ${package.Entity}.${entity};
-import ${package.Mapper}.entity.${do};
 import ${superServiceClassPackage};
 
 /**

@@ -34,7 +34,6 @@ public class DaoGenerator extends BaseGenerator {
     @Override
     protected void setPackageConfig(PackageConfig packageConfig, String moduleName) {
         packageConfig.setModuleName("")
-                .setParent("org.tools")
                 .setService("dao."+ moduleName)
                 .setServiceImpl("dao."+ moduleName +".impl")
                 .setMapper("dao."+ moduleName +".impl")

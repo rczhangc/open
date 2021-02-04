@@ -34,9 +34,9 @@ public class ControllerGenerator extends BaseGenerator {
     @Override
     protected void setPackageConfig(PackageConfig packageConfig, String moduleName) {
         packageConfig.setModuleName("")
-                .setParent("org.tools")
                 .setController("controller."+ moduleName)
-                .setEntity("controller."+ moduleName +".view");
+                .setEntity("controller."+ moduleName +".view")
+                .setXml(moduleName);
     }
 
     @Override

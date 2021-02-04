@@ -14,4 +14,9 @@ public interface GeneratorConstants {
      * 作者
      */
     String AUTHOR = "barnak";
+
+    /**
+     * 父包
+     */
+    String PARENT_PACKAGE = "org.open.boot";
 }

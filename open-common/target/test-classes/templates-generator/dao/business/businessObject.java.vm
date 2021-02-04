@@ -1,11 +1,11 @@
 package ${package.Service};
 
-import com.baomidou.mybatisplus.annotation.*;
 import ${package.Mapper}.entity.${entity};
-import java.io.Serializable;
 #if(${entityLombokModel})
 import lombok.Data;
 #end
+
+import java.io.Serializable;
 
 /**
  * $!{table.comment}实体类BO

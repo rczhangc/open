@@ -1,2 +1,2 @@
-org\tools\dao\user\UserManagerTest.class
-org\tools\BaseUnitTest.class
+org\open\boot\dao\user\UserManagerTest.class
+org\open\boot\BaseUnitTest.class
