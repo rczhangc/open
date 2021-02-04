@@ -20,6 +20,8 @@
     <module>open-dao</module>
     <module>open-service</module>
     <module>open-controller</module>
+    <module>open-api</module>
+    <module>open-test</module>
   </modules>
 
   <name>open</name>
@@ -36,6 +38,7 @@
     <open-model.version>1.0-SNAPSHOT</open-model.version>
     <open-dao.version>1.0-SNAPSHOT</open-dao.version>
     <open-service.version>1.0-SNAPSHOT</open-service.version>
+    <open-api.version>1.0-SNAPSHOT</open-api.version>
     <!-- Mybatis-plus 相关依赖 -->
     <mybatis-plus.version>3.4.1</mybatis-plus.version>
     <mysql.connector.java.version>8.0.19</mysql.connector.java.version>
@@ -89,6 +92,12 @@
         <groupId>org.open.boot</groupId>
         <artifactId>open-service</artifactId>
         <version>${open-service.version}</version>
+      </dependency>
+      <!-- Open Api-->
+      <dependency>
+        <groupId>org.open.boot</groupId>
+        <artifactId>open-api</artifactId>
+        <version>${open-api.version}</version>
       </dependency>
 
       <!-- 外部依赖 -->

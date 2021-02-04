@@ -35,6 +35,11 @@
 			<groupId>org.open.boot</groupId>
 			<artifactId>open-service</artifactId>
 		</dependency>
+		<!-- Open Api-->
+		<dependency>
+			<groupId>org.open.boot</groupId>
+			<artifactId>open-api</artifactId>
+		</dependency>
 
 		<!-- SpringBoot -->
 		<dependency>
