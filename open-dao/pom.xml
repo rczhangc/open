@@ -2,54 +2,40 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>open</artifactId>
         <groupId>org.tools</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>open-dao</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- 内部依赖 -->
+        <!-- Open Common -->
+        <dependency>
+            <groupId>org.tools</groupId>
+            <artifactId>open-common</artifactId>
+        </dependency>
+        <!-- Open Model -->
         <dependency>
             <groupId>org.tools</groupId>
             <artifactId>open-model</artifactId>
         </dependency>
 
+        <!-- 外部依赖 -->
         <!-- MybatisPlus 核心库 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
-
         <!-- 提供mysql驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <!-- MybatisPlus Generator -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Velocity -->
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- SpringBoot Test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
     </dependencies>
 </project>

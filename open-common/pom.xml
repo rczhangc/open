@@ -7,38 +7,24 @@
         <groupId>org.tools</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>open-common</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-    </properties>
-
     <dependencies>
-        <!-- Open Model -->
-        <dependency>
-            <groupId>org.tools</groupId>
-            <artifactId>open-model</artifactId>
-        </dependency>
-        <!-- Open Dao -->
-        <dependency>
-            <groupId>org.tools</groupId>
-            <artifactId>open-dao</artifactId>
-            <scope>provided</scope>
-        </dependency>
         <!-- MybatisPlus 核心库 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+            <scope>test</scope>
         </dependency>
         <!-- 提供mysql驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <scope>test</scope>
         </dependency>
         <!-- MybatisPlus Generator -->
         <dependency>
@@ -52,16 +38,20 @@
             <artifactId>velocity-engine-core</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- SpringBoot Test -->
+        <!-- Jedis -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
         </dependency>
+        <!-- FastJson -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <!-- Commons -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
         </dependency>
     </dependencies>
 </project>

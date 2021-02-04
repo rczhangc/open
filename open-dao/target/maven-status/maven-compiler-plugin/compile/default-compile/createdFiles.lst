@@ -1,0 +1,3 @@
+org\tools\dao\user\impl\UserMapper.class
+org\tools\dao\user\UserManager.class
+org\tools\dao\user\impl\UserManagerImpl.class
