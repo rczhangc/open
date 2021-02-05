@@ -1,10 +1,10 @@
-package org.open.boot.propagation.supported;
+package org.open.boot.propagation.nested;
 
+import org.open.boot.dao.user.entity.UserDO;
+import org.open.boot.service.user.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.open.boot.dao.user.entity.UserDO;
-import org.open.boot.service.user.UserService;
 
 import javax.annotation.Resource;
 
@@ -12,14 +12,14 @@ import javax.annotation.Resource;
  * @author barnak
  */
 @Service
-public class SupportedServiceA {
+public class NestedServiceA {
 
     @Resource
     private UserService userService;
     @Resource
-    private SupportedServiceB methodB;
+    private NestedServiceB methodB;
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     public void nonTry() {
         UserDO user = new UserDO();
         user.setId(1L);
@@ -28,7 +28,7 @@ public class SupportedServiceA {
         methodB.nonTry();
     }
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     public void insideTry() {
         UserDO user = new UserDO();
         user.setId(1L);
@@ -37,7 +37,7 @@ public class SupportedServiceA {
         methodB.insideTry();
     }
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     public void outsideTry() {
         UserDO user = new UserDO();
         user.setId(1L);

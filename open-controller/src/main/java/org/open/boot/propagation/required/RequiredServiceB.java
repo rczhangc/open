@@ -18,14 +18,15 @@ public class RequiredServiceB {
     private UserService userService;
 
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-    public void nonTry() {
-        UserDO user = new UserDO();
-        user.setId(2L);
-        user.setName("JackB");
-        int i = userService.updateById(user);
-        if (i == 1) {
-            throw new RuntimeException("更新失败");
-        }
+    public void nonTry(Runnable runnable) {
+//        UserDO user = new UserDO();
+//        user.setId(2L);
+//        user.setName("JackB");
+//        int i = userService.updateById(user);
+//        if (i == 1) {
+//            throw new RuntimeException("更新失败");
+//        }
+        runnable.run();
     }
 
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)

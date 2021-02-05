@@ -10,8 +10,8 @@ import com.baomidou.mybatisplus.generator.config.TemplateConfig;
  */
 public class ServiceGenerator extends BaseGenerator {
     @Override
-    protected String getModulePackage() {
-        return MavenModuleEnum.OPEN_SERVICE.getModulePackage();
+    protected MavenModuleEnum getModule() {
+        return MavenModuleEnum.OPEN_SERVICE;
     }
 
     @Override

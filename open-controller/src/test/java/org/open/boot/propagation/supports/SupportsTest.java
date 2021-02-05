@@ -1,9 +1,8 @@
 package org.open.boot.propagation.supports;
 
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.open.boot.propagation.required.RequiredServiceA;
 import org.open.boot.propagation.PropagationBehaviorBaseTest;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author barnak
@@ -11,7 +10,7 @@ import org.open.boot.propagation.PropagationBehaviorBaseTest;
 public class SupportsTest extends PropagationBehaviorBaseTest {
 
     @Autowired
-    private RequiredServiceA methodA;
+    private SupportsServiceA methodA;
 
     @Test
     public void testNonTry() {

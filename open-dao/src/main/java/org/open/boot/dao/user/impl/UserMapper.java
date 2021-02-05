@@ -1,5 +1,6 @@
 package org.open.boot.dao.user.impl;
 
+import org.apache.ibatis.annotations.Param;
 import org.open.boot.dao.user.entity.UserDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -10,4 +11,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 interface UserMapper extends BaseMapper<UserDO> {
 
+    UserDO selectByUserIds(@Param("userId") Long userId);
 }

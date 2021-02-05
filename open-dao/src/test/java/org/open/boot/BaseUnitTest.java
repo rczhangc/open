@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = TestRunner.class)
-@MapperScan(basePackages = {"org.open.boot.dao.*.impl"})
+@MapperScan(basePackages = {"org.open.boot.dao.*.impl","org.open.boot.dao.*.xml"})
 @ActiveProfiles("dao-test")
 @SpringBootApplication
 public class BaseUnitTest {
