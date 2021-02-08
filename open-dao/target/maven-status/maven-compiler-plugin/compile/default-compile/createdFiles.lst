@@ -1,0 +1,6 @@
+org\open\boot\dao\system\SysGlobalConfigManager.class
+org\open\boot\dao\user\impl\UserMapper.class
+org\open\boot\dao\system\impl\SysGlobalConfigManagerImpl.class
+org\open\boot\dao\system\impl\SysGlobalConfigMapper.class
+org\open\boot\dao\user\impl\UserManagerImpl.class
+org\open\boot\dao\user\UserManager.class

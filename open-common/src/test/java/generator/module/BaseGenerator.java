@@ -140,7 +140,7 @@ public abstract class BaseGenerator {
     }
 
     private static InjectionConfig getInjectionConfig(MavenModuleEnum mavenModule, final String moduleName) {
-        if (MavenModuleEnum.OPEN_DAO.equals(mavenModule)) {
+        if (!MavenModuleEnum.OPEN_DAO.equals(mavenModule)) {
             return null;
         }
         return new InjectionConfig() {
@@ -153,8 +153,8 @@ public abstract class BaseGenerator {
                     @Override
                     public String outputFile(TableInfo tableInfo) {
                         // 自定义输出文件名，如果entity设置了前后缀，此次注意xml的名称也会跟着发生变化
-                        return projectPath + "/src/main/resources/mapper/" +
-                                moduleName + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                        return projectPath + "/"+ mavenModule.getModulePackage() +"/src/main/resources/mapper/" +
+                                moduleName + "/" + tableInfo.getXmlName() + "Mapper" + StringPool.DOT_XML;
                     }
                 });
                 setFileOutConfigList(fileOutConfigList);

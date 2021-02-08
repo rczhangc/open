@@ -1,0 +1,3 @@
+org\open\boot\dao\user\UserManagerTest.class
+org\open\boot\dao\system\SysGlobalConfigManagerTest.class
+org\open\boot\BaseUnitTest.class

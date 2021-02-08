@@ -17,8 +17,9 @@ public class DaoGenerator extends BaseGenerator {
     @Override
     protected void setGlobalConfig(GlobalConfig globalConfig) {
         globalConfig.setEntityName("%sDO")
-            .setServiceName("%sManager")
-            .setServiceImplName("%sManagerImpl");
+                .setXmlName("%s")
+                .setServiceName("%sManager")
+                .setServiceImplName("%sManagerImpl");
     }
 
     @Override
