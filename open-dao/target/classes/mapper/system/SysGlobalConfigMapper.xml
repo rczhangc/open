@@ -6,7 +6,7 @@
     <resultMap id="BaseResultMap" type="org.open.boot.dao.system.entity.SysGlobalConfigDO">
         <id column="config_code" property="configCode" />
         <result column="group_flag" property="groupFlag" />
-        <result column="json_value" property="jsonValue" />
+        <result column="json_value" property="jsonValue" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler" />
         <result column="insert_time" property="insertTime" />
         <result column="update_time" property="updateTime" />
         <result column="is_deleted" property="isDeleted" />

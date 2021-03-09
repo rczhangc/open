@@ -2,4 +2,6 @@ D:\IdeaProjects\open\open-model\src\main\java\org\open\boot\dao\system\enums\Sys
 D:\IdeaProjects\open\open-model\src\main\java\org\open\boot\dao\user\business\UserBO.java
 D:\IdeaProjects\open\open-model\src\main\java\org\open\boot\dao\user\entity\UserDO.java
 D:\IdeaProjects\open\open-model\src\main\java\org\open\boot\dao\system\business\SysGlobalConfigBO.java
+D:\IdeaProjects\open\open-model\src\main\java\org\open\boot\dao\page\entity\PageDO.java
+D:\IdeaProjects\open\open-model\src\main\java\org\open\boot\dao\page\business\PageBO.java
 D:\IdeaProjects\open\open-model\src\main\java\org\open\boot\dao\system\entity\SysGlobalConfigDO.java

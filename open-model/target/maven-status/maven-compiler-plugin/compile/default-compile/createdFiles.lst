@@ -1,5 +1,7 @@
 org\open\boot\dao\system\enums\SysGlobalConfigCodeEnum.class
 org\open\boot\dao\user\business\UserBO.class
+org\open\boot\dao\page\business\PageBO.class
+org\open\boot\dao\page\entity\PageDO.class
 org\open\boot\dao\system\business\SysGlobalConfigBO.class
 org\open\boot\dao\user\entity\UserDO.class
 org\open\boot\dao\system\entity\SysGlobalConfigDO.class
