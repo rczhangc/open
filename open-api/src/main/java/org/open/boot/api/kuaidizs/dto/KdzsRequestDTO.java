@@ -3,6 +3,7 @@ package org.open.boot.api.kuaidizs.dto;
 import java.util.Objects;
 
 /**
+ *
  * @author barnak
  */
 public class KdzsRequestDTO {
@@ -130,13 +131,15 @@ public class KdzsRequestDTO {
     }
 
     public static void main(String[] args) {
-//        String param = "key\tString\t是\tcolor\t键值\n" +
-//                "name\tString\t是\t颜色\t键值（中文）\n" +
-//                "value\tString\t是\t红色\t属性值";
+//        String param = "tid\tString\t是\t12345678\t订单号\n" +
+//                "waybillNo\tString\t否\t4214623421\t快递单号\n" +
+//                "message\tString\t否\t无\t失败原因\n" +
+//                "success\tboolean\t是\ttrue\t是否成功";
 //        method1(param);
-        String param = "tidList\tList< String >\t是\t订单id列表";
-        method2(param);
-
+//        String param = "itemIdList\tList< String >\t是\t商品Id列表";
+//        method2(param);
+//        seee();
+        seee2();
     }
 
     public static void method1(String param) {
@@ -177,6 +180,30 @@ public class KdzsRequestDTO {
             }
             stringBuilder.append("\n\t */\n\tprivate ").append(split[1]).append(" ").append(split[0]).append(";\n");
             System.out.println(stringBuilder.toString());
+        }
+    }
+
+    private static void seee() {
+        String param = "500\t业务异常\n" +
+                "601\t主键冲突";
+        String[] line = param.split("\n");
+        for (String str : line) {
+            StringBuilder builder = new StringBuilder();
+            String[] split = str.split("\t");
+            builder.append("\t").append(split[0]).append("(\"").append(split[1]).append("\"),");
+            System.out.println(builder.toString());
+        }
+    }
+
+    private static void seee2() {
+        String param = "500\t业务异常\n" +
+                "601\t主键冲突";
+        String[] line = param.split("\n");
+        for (String str : line) {
+            StringBuilder builder = new StringBuilder();
+            String[] split = str.split("\t");
+            builder.append("\t").append(split[0]).append("(\"").append(split[1]).append("\"),");
+            System.out.println(builder.toString());
         }
     }
 }

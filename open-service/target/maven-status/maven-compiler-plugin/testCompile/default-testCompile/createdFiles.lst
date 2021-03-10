@@ -1,3 +1,4 @@
-org\open\boot\api\KdzsOrderApiTest.class
 org\open\boot\service\user\UserServiceTest.class
+org\open\boot\api\KdzsWaybillApiTest.class
+org\open\boot\api\KdzsOrderApiTest.class
 org\open\boot\BaseUnitTest.class

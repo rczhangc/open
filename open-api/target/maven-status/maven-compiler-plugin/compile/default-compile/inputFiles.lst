@@ -1,11 +1,16 @@
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallTradeSendDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallTradeDTO.java
-D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallPropDTO.java
+D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsModeListShowDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallTradeTidListDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallOrderDTO.java
+D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsTemplateListDTO.java
+D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallSkuPropDTO.java
+D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallTradeListDTO.java
+D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsObjectDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallTradeRefundDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsRequestDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\user\UserApi.java
+D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\KdzsWaybillApi.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\user\dto\UserDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallInvoiceDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsResponseDTO.java

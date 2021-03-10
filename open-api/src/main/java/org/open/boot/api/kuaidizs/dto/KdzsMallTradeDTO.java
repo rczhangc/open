@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author barnak
  */
-public class KdzsMallTradeDTO {
+public class KdzsMallTradeDTO extends KdzsObjectDTO {
 
     /**
      * 订单id，全局唯一（必须）

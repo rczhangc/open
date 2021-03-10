@@ -51,6 +51,7 @@
     <commons-lang.version>2.6</commons-lang.version>
     <commons-collections4.version>4.3</commons-collections4.version>
     <hutool-all.version>5.5.9</hutool-all.version>
+    <jmockdata.version>4.1.2</jmockdata.version>
   </properties>
 
   <!-- 公共依赖 -->
@@ -165,6 +166,11 @@
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-all</artifactId>
         <version>${hutool-all.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.jsonzou</groupId>
+        <artifactId>jmockdata</artifactId>
+        <version>${jmockdata.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -2,8 +2,6 @@ package org.open.boot.api.kuaidizs;
 
 import org.open.boot.api.kuaidizs.dto.*;
 
-import java.util.List;
-
 /**
  * 快递助手：订单接口
  *
@@ -17,15 +15,15 @@ public interface KdzsOrderApi {
      * @param request {@link KdzsMallOrderDTO}
      * @return {@link KdzsResponseDTO}
      */
-    KdzsResponseDTO create(KdzsMallTradeDTO request);
+    KdzsResponseDTO<Object> create(KdzsMallTradeDTO request);
 
     /**
      * 批量同步订单（内测中）（一次不可超过300条）
      *
-     * @param requestList {@link List<KdzsMallOrderDTO>}
+     * @param request {@link KdzsMallTradeListDTO}
      * @return {@link KdzsResponseDTO}
      */
-    KdzsResponseDTO batchCreate(List<KdzsMallTradeDTO> requestList);
+    KdzsResponseDTO<Object> batchCreate(KdzsMallTradeListDTO request);
 
     /**
      * 修改订单信息
@@ -33,7 +31,7 @@ public interface KdzsOrderApi {
      * @param request {@link KdzsMallTradeUpdateDTO}
      * @return {@link KdzsResponseDTO}
      */
-    KdzsResponseDTO update(KdzsMallTradeUpdateDTO request);
+    KdzsResponseDTO<Object> update(KdzsMallTradeUpdateDTO request);
 
     /**
      * 订单发货
@@ -41,7 +39,7 @@ public interface KdzsOrderApi {
      * @param request {@link KdzsMallTradeSendDTO}
      * @return {@link KdzsResponseDTO}
      */
-    KdzsResponseDTO send(KdzsMallTradeSendDTO request);
+    KdzsResponseDTO<Object> send(KdzsMallTradeSendDTO request);
 
     /**
      * 订单退款
@@ -49,7 +47,7 @@ public interface KdzsOrderApi {
      * @param request {@link KdzsMallTradeRefundDTO}
      * @return {@link KdzsResponseDTO}
      */
-    KdzsResponseDTO refund(KdzsMallTradeRefundDTO request);
+    KdzsResponseDTO<Object> refund(KdzsMallTradeRefundDTO request);
 
     /**
      * 订单删除
@@ -57,5 +55,5 @@ public interface KdzsOrderApi {
      * @param request {@link KdzsMallTradeTidListDTO}
      * @return {@link KdzsResponseDTO}
      */
-    KdzsResponseDTO batchDelete(KdzsMallTradeTidListDTO request);
+    KdzsResponseDTO<Object> batchDelete(KdzsMallTradeTidListDTO request);
 }
