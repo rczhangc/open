@@ -13,15 +13,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 class UserManagerImpl extends ServiceImpl<UserMapper, UserDO> implements UserManager {
 
-<<<<<<< HEAD
     @Override
     public UserDO getByUserId(String userId) {
         return baseMapper.getByUserId(userId);
-=======
-
+    }
     @Override
     public UserDO selectByUserIds(Long userId) {
         return baseMapper.selectByUserIds(userId);
->>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020
     }
 }
