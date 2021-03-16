@@ -1,4 +1,4 @@
-org\open\boot\util\redis\RedisHash.class
-org\open\boot\util\redis\RedisKey.class
-org\open\boot\util\redis\RedisUtils.class
-org\open\boot\util\redis\RedisObjects.class
+org/open/boot/util/redis/RedisKey.class
+org/open/boot/util/redis/RedisObjects.class
+org/open/boot/util/redis/RedisHash.class
+org/open/boot/util/redis/RedisUtils.class

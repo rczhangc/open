@@ -1,2 +1,2 @@
-org\open\boot\dao\user\entity\UserDO.class
-org\open\boot\dao\user\business\UserBO.class
+org/open/boot/dao/user/entity/UserDO.class
+org/open/boot/dao/user/business/UserBO.class

@@ -10,4 +10,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserManager extends IService<UserDO> {
 
+    UserDO getByUserId(String userId);
 }

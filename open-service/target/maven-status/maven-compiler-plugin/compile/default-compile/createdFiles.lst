@@ -1,0 +1,3 @@
+org/open/boot/service/user/impl/UserServiceImpl.class
+org/open/boot/api/user/impl/UserApiImpl.class
+org/open/boot/service/user/UserService.class

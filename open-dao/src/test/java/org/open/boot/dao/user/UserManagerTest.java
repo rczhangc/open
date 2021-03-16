@@ -16,7 +16,12 @@ public class UserManagerTest extends BaseUnitTest {
 
     @Test
     public void test() {
-        UserDO byId = userManager.getById(1L);
+        UserDO byId = userManager.getById(null);
     }
 
+    @Test
+    public void testUser() {
+        UserDO byUserId = userManager.getByUserId("1");
+
+    }
 }
