@@ -17,7 +17,7 @@ public class SupportsServiceB {
     @Resource
     private UserService userService;
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.SUPPORTS)
     public void nonTry() {
         UserDO user = new UserDO();
         user.setId(2L);
@@ -28,7 +28,7 @@ public class SupportsServiceB {
         }
     }
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.SUPPORTS)
     public void insideTry() {
         try {
             UserDO user = new UserDO();

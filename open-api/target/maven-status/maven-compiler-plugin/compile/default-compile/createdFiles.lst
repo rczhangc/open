@@ -1,2 +1,23 @@
+<<<<<<< HEAD
 org/open/boot/api/user/dto/UserDTO.class
 org/open/boot/api/user/UserApi.class
+=======
+org\open\boot\api\kuaidizs\dto\KdzsMallTradeRefundDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsMallOrderDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsRequestDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsResponseDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsMallSkuPropDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsMallTradeSendDTO.class
+org\open\boot\api\kuaidizs\KdzsWaybillApi.class
+org\open\boot\api\kuaidizs\KdzsOrderApi.class
+org\open\boot\api\user\dto\UserDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsMallInvoiceDTO.class
+org\open\boot\api\user\UserApi.class
+org\open\boot\api\kuaidizs\dto\KdzsMallTradeListDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsModeListShowDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsObjectDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsTemplateListDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsMallTradeDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsMallTradeUpdateDTO.class
+org\open\boot\api\kuaidizs\dto\KdzsMallTradeTidListDTO.class
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

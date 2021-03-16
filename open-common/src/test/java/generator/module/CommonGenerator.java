@@ -11,8 +11,8 @@ import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 public class CommonGenerator extends BaseGenerator {
 
     @Override
-    protected String getModulePackage() {
-        return MavenModuleEnum.OPEN_COMMON.getModulePackage();
+    protected MavenModuleEnum getModule() {
+        return MavenModuleEnum.OPEN_COMMON;
     }
 
     @Override

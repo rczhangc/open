@@ -11,6 +11,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 interface UserMapper extends BaseMapper<UserDO> {
 
+<<<<<<< HEAD
 
     UserDO getByUserId(@Param("userId") String userId);
+=======
+    UserDO selectByUserIds(@Param("userId") Long userId);
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020
 }

@@ -34,4 +34,9 @@ class UserServiceImpl implements UserService {
         boolean b = userManager.updateById(user);
         return b ? 1 : 0;
     }
+
+    @Override
+    public UserDO selectByUserId(Long userId) {
+        return userManager.selectByUserIds(userId);
+    }
 }

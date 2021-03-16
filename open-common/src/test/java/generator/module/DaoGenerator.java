@@ -10,15 +10,16 @@ import com.baomidou.mybatisplus.generator.config.TemplateConfig;
  */
 public class DaoGenerator extends BaseGenerator {
     @Override
-    protected String getModulePackage() {
-        return MavenModuleEnum.OPEN_DAO.getModulePackage();
+    protected MavenModuleEnum getModule() {
+        return MavenModuleEnum.OPEN_DAO;
     }
 
     @Override
     protected void setGlobalConfig(GlobalConfig globalConfig) {
         globalConfig.setEntityName("%sDO")
-            .setServiceName("%sManager")
-            .setServiceImplName("%sManagerImpl");
+                .setXmlName("%s")
+                .setServiceName("%sManager")
+                .setServiceImplName("%sManagerImpl");
     }
 
     @Override
@@ -28,7 +29,7 @@ public class DaoGenerator extends BaseGenerator {
                 .setServiceImpl("/templates-generator/dao/impl/managerImpl.java.vm")
                 .setEntity("")
                 .setMapper("/templates-generator/dao/impl/mapper.java.vm")
-                .setXml("/templates-generator/dao/xml/mapper.xml.vm");
+                .setXml("");
     }
 
     @Override

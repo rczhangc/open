@@ -19,7 +19,7 @@ public class SupportsServiceA {
     @Resource
     private SupportsServiceB methodB;
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.SUPPORTS)
     public void nonTry() {
         UserDO user = new UserDO();
         user.setId(1L);
@@ -28,7 +28,7 @@ public class SupportsServiceA {
         methodB.nonTry();
     }
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.SUPPORTS)
     public void insideTry() {
         UserDO user = new UserDO();
         user.setId(1L);
@@ -37,7 +37,7 @@ public class SupportsServiceA {
         methodB.insideTry();
     }
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.SUPPORTS)
     public void outsideTry() {
         UserDO user = new UserDO();
         user.setId(1L);

@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 /Users/zhangrongchang/IdeaProjects/open/open-common/src/main/java/org/open/boot/util/redis/RedisHash.java
 /Users/zhangrongchang/IdeaProjects/open/open-common/src/main/java/org/open/boot/util/redis/RedisObjects.java
 /Users/zhangrongchang/IdeaProjects/open/open-common/src/main/java/org/open/boot/util/redis/RedisKey.java
 /Users/zhangrongchang/IdeaProjects/open/open-common/src/main/java/org/open/boot/util/redis/RedisUtils.java
+=======
+D:\IdeaProjects\open\open-common\src\main\java\org\open\boot\util\redis\RedisKey.java
+D:\IdeaProjects\open\open-common\src\main\java\org\open\boot\constants\Constants.java
+D:\IdeaProjects\open\open-common\src\main\java\org\open\boot\util\redis\RedisHash.java
+D:\IdeaProjects\open\open-common\src\main\java\org\open\boot\util\wol\LanIp.java
+D:\IdeaProjects\open\open-common\src\main\java\org\open\boot\util\redis\RedisObjects.java
+D:\IdeaProjects\open\open-common\src\main\java\org\open\boot\annotation\transactional\ChangeTransactional.java
+D:\IdeaProjects\open\open-common\src\main\java\org\open\boot\util\redis\RedisUtils.java
+D:\IdeaProjects\open\open-common\src\main\java\org\open\boot\util\wol\RemoteBootUtil.java
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

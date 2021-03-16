@@ -1,10 +1,10 @@
-package org.open.boot.propagation.supported;
+package org.open.boot.propagation.never;
 
+import org.open.boot.dao.user.entity.UserDO;
+import org.open.boot.service.user.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.open.boot.dao.user.entity.UserDO;
-import org.open.boot.service.user.UserService;
 
 import javax.annotation.Resource;
 
@@ -12,12 +12,12 @@ import javax.annotation.Resource;
  * @author barnak
  */
 @Service
-public class SupportedServiceB {
+public class NeverServiceB {
 
     @Resource
     private UserService userService;
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NEVER)
     public void nonTry() {
         UserDO user = new UserDO();
         user.setId(2L);
@@ -28,7 +28,7 @@ public class SupportedServiceB {
         }
     }
 
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NEVER)
     public void insideTry() {
         try {
             UserDO user = new UserDO();

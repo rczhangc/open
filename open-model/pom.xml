@@ -14,6 +14,14 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- 内部依赖 -->
+        <!-- Open Common -->
+        <dependency>
+            <groupId>org.open.boot</groupId>
+            <artifactId>open-common</artifactId>
+            <version>${open-common.version}</version>
+        </dependency>
+
         <!-- MybatisPlus 核心库 -->
         <dependency>
             <groupId>com.baomidou</groupId>

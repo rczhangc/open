@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 /Users/zhangrongchang/IdeaProjects/open/open-service/src/test/java/org/open/boot/service/user/UserServiceTest.java
 /Users/zhangrongchang/IdeaProjects/open/open-service/src/test/java/org/open/boot/BaseUnitTest.java
+=======
+D:\IdeaProjects\open\open-service\src\test\java\org\open\boot\api\KdzsOrderApiTest.java
+D:\IdeaProjects\open\open-service\src\test\java\org\open\boot\BaseUnitTest.java
+D:\IdeaProjects\open\open-service\src\test\java\org\open\boot\api\KdzsWaybillApiTest.java
+D:\IdeaProjects\open\open-service\src\test\java\org\open\boot\service\user\UserServiceTest.java
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

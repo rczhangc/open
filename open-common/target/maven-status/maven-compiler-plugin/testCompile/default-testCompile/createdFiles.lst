@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 generator/module/BaseGenerator.class
 generator/module/DaoGenerator.class
 generator/module/MavenModuleEnum.class
@@ -10,3 +11,19 @@ org/open/boot/util/redis/RedisUtilsTest.class
 generator/module/ModelGenerator.class
 generator/module/ServiceGenerator.class
 generator/ModuleInfo.class
+=======
+generator\module\BaseGenerator.class
+generator\module\ControllerGenerator.class
+generator\GeneratorConstants.class
+generator\module\ServiceGenerator.class
+org\open\boot\util\redis\RedisUtilsTest.class
+generator\module\BaseGenerator$1.class
+generator\module\MavenModuleEnum.class
+generator\DataBaseConstants.class
+generator\module\ModelGenerator.class
+generator\module\BaseGenerator$1$1.class
+generator\module\DaoGenerator.class
+generator\module\CommonGenerator.class
+generator\CodeGenerator.class
+generator\ModuleInfo.class
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

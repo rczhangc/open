@@ -25,7 +25,6 @@ public class RequiredServiceA {
         user.setId(1L);
         user.setName("JoneA");
         userService.updateById(user);
-        methodB.nonTry();
     }
 
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
@@ -44,7 +43,29 @@ public class RequiredServiceA {
         user.setName("JoneA");
         userService.updateById(user);
         try {
-            methodB.nonTry();
+        } catch (Exception e) {
+            System.out.println("B方法更新失败");
+        }
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    public void outsideTry(Runnable runnable) {
+        UserDO user = new UserDO();
+        user.setId(1L);
+        user.setName("JoneA");
+        userService.updateById(user);
+        try {
+            runnable.run();
+        } catch (Exception e) {
+            System.out.println("B方法更新失败");
+        }
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    public void outsideTry(Runnable runnableA, Runnable runnableB) {
+        runnableA.run();
+        try {
+            runnableB.run();
         } catch (Exception e) {
             System.out.println("B方法更新失败");
         }

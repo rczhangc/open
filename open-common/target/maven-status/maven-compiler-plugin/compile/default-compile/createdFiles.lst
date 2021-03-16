@@ -1,4 +1,23 @@
+<<<<<<< HEAD
 org/open/boot/util/redis/RedisKey.class
 org/open/boot/util/redis/RedisObjects.class
 org/open/boot/util/redis/RedisHash.class
 org/open/boot/util/redis/RedisUtils.class
+=======
+org\open\boot\annotation\transactional\ChangeTransactional.class
+org\open\boot\util\wol\LanIp$ExecutePing.class
+org\open\boot\util\wol\LanIp$HostInfo.class
+org\open\boot\constants\Constants.class
+org\open\boot\util\wol\RemoteBootUtil$MagicPacketConstants.class
+org\open\boot\util\wol\LanIp$ExecuteHostName.class
+org\open\boot\util\wol\LanIp.class
+org\open\boot\util\redis\RedisHash.class
+org\open\boot\util\redis\RedisUtils.class
+org\open\boot\util\wol\LanIp$LanPing.class
+org\open\boot\constants\Constants$Symbol.class
+org\open\boot\util\wol\LanIp$LanIpConstants.class
+org\open\boot\util\redis\RedisObjects.class
+org\open\boot\util\wol\RemoteBootUtil.class
+org\open\boot\util\redis\RedisKey.class
+org\open\boot\util\wol\RemoteBootUtil$MacAddressConstants.class
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

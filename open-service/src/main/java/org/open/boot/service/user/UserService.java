@@ -16,4 +16,6 @@ public interface UserService {
     UserDO getById(long l);
 
     int updateById(UserDO user);
+
+    UserDO selectByUserId(Long userId);
 }
