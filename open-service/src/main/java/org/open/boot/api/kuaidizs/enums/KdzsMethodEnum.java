@@ -25,6 +25,12 @@ public enum KdzsMethodEnum {
     // 电子面单方法枚举
     WAYBILL_GET_TEMPLATE_LIST("获取模版列表", "waybill.getTemplateList", Method.POST),
     WAYBILL_GET_BATCH("预申请单号", "waybill.getBatch", Method.POST),
+
+    // 回调方法
+    CALLBACK_TRADE_SEND("同步发货", "trade.send", Method.OPTIONS),
+    CALLBACK_TRADE_UPDATE_MEMO("订单备注回传", "trade.updateMemo", Method.OPTIONS),
+    CALLBACK_USER_PUSH("店铺信息推送", "user.push", Method.OPTIONS),
+    CALLBACK_USER_LOGIN("店铺登录", "user.login", Method.OPTIONS),
     ;
 
     KdzsMethodEnum(String name, String value, Method method) {

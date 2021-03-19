@@ -12,11 +12,13 @@ import org.open.boot.api.kuaidizs.constants.KdzsConstants;
 import org.open.boot.api.kuaidizs.dto.KdzsObjectDTO;
 import org.open.boot.api.kuaidizs.dto.KdzsRequestDTO;
 import org.open.boot.api.kuaidizs.dto.KdzsResponseDTO;
+import org.open.boot.api.kuaidizs.enums.KdzsFailCodeEnum;
 import org.open.boot.api.kuaidizs.enums.KdzsMethodEnum;
 import org.open.boot.api.kuaidizs.exception.KdzsException;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * 快递助手工具
@@ -109,6 +111,48 @@ public class KdzsUtils {
         request.setSignMethod(KdzsConfig.config().getSignMethod());
         request.setSign(signRequestCommon(JSONObject.parseObject(appParamJsonStr), KdzsConfig.config().getAppSecret()));
         return request;
+    }
+
+    /**
+     * 签名校验
+     *
+     * @param request {@link KdzsRequestDTO}
+     * @return true成功 false失败
+     */
+    public static boolean checkSign(KdzsRequestDTO request) {
+        String requestSign = request.getSign();
+        String checkSign = signRequestCommon(JSONObject.parseObject(JSON.toJSONString(request)), KdzsConfig.config().getAppSecret());
+        return Objects.equals(requestSign, checkSign);
+    }
+
+    public static <T> KdzsResponseDTO<T> success(){
+        KdzsResponseDTO<T> responseDto = new KdzsResponseDTO<>();
+        responseDto.setCode(KdzsFailCodeEnum.SUCCESS.getCode());
+        responseDto.setMessage(KdzsFailCodeEnum.SUCCESS.getDesc());
+        return responseDto;
+    }
+
+    public static <T> KdzsResponseDTO<T> success(String message){
+        KdzsResponseDTO<T> responseDto = new KdzsResponseDTO<>();
+        responseDto.setCode(KdzsFailCodeEnum.SUCCESS.getCode());
+        responseDto.setMessage(message);
+        return responseDto;
+    }
+
+    public static <T> KdzsResponseDTO<T> fail(String message){
+        KdzsResponseDTO<T> responseDto = new KdzsResponseDTO<>();
+        responseDto.setCode(KdzsFailCodeEnum.BUSINESS_EXCEPTION.getCode());
+        responseDto.setResult(String.valueOf(KdzsFailCodeEnum.BUSINESS_EXCEPTION.getCode()));
+        responseDto.setMessage(message);
+        return responseDto;
+    }
+
+    public static <T> KdzsResponseDTO<T> fail(KdzsFailCodeEnum code, String message){
+        KdzsResponseDTO<T> responseDto = new KdzsResponseDTO<>();
+        responseDto.setCode(code.getCode());
+        responseDto.setResult(String.valueOf(code.getCode()));
+        responseDto.setMessage(message);
+        return responseDto;
     }
 
     /**

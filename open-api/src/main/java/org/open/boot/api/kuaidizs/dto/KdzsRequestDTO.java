@@ -136,10 +136,12 @@ public class KdzsRequestDTO {
 //                "message\tString\t否\t无\t失败原因\n" +
 //                "success\tboolean\t是\ttrue\t是否成功";
 //        method1(param);
-//        String param = "itemIdList\tList< String >\t是\t商品Id列表";
-//        method2(param);
+        String param = "shopName\tString\t是\t店铺名称\n" +
+                "token\tString\t是\t校验该店铺是否有效\n" +
+                "mallUserId\tLong\t是\t店铺ID";
+        method2(param);
 //        seee();
-        seee2();
+//        seee2();
     }
 
     public static void method1(String param) {
