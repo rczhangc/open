@@ -20,15 +20,13 @@ public class UserManagerTest extends BaseUnitTest {
     }
 
     @Test
-<<<<<<< HEAD
     public void testUser() {
         UserDO byUserId = userManager.getByUserId("1");
 
     }
-=======
+
     public void test2() {
         UserDO userDO = userManager.selectByUserIds(1L);
     }
 
->>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020
 }
