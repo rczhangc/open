@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+/Users/zhangrongchang/IdeaProjects/open/open-dao/src/main/java/org/open/boot/dao/user/impl/UserManagerImpl.java
+/Users/zhangrongchang/IdeaProjects/open/open-dao/src/main/java/org/open/boot/dao/user/impl/UserMapper.java
+/Users/zhangrongchang/IdeaProjects/open/open-dao/src/main/java/org/open/boot/dao/user/UserManager.java
+=======
 D:\IdeaProjects\open\open-dao\src\main\java\org\open\boot\dao\page\impl\PageMapper.java
 D:\IdeaProjects\open\open-dao\src\main\java\org\open\boot\dao\page\PageManager.java
 D:\IdeaProjects\open\open-dao\src\main\java\org\open\boot\dao\system\impl\SysGlobalConfigManagerImpl.java
@@ -7,3 +12,4 @@ D:\IdeaProjects\open\open-dao\src\main\java\org\open\boot\dao\page\impl\PageMana
 D:\IdeaProjects\open\open-dao\src\main\java\org\open\boot\dao\system\impl\SysGlobalConfigMapper.java
 D:\IdeaProjects\open\open-dao\src\main\java\org\open\boot\dao\system\SysGlobalConfigManager.java
 D:\IdeaProjects\open\open-dao\src\main\java\org\open\boot\dao\user\UserManager.java
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

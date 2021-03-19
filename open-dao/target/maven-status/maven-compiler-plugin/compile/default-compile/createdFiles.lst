@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 org\open\boot\dao\system\SysGlobalConfigManager.class
 org\open\boot\dao\page\impl\PageManagerImpl.class
 org\open\boot\dao\page\impl\PageMapper.class
@@ -7,3 +9,4 @@ org\open\boot\dao\system\impl\SysGlobalConfigMapper.class
 org\open\boot\dao\user\impl\UserManagerImpl.class
 org\open\boot\dao\page\PageManager.class
 org\open\boot\dao\user\UserManager.class
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

@@ -10,5 +10,6 @@ import org.open.boot.dao.user.entity.UserDO;
  */
 public interface UserManager extends IService<UserDO> {
 
+    UserDO getByUserId(String userId);
     UserDO selectByUserIds(Long userId);
 }

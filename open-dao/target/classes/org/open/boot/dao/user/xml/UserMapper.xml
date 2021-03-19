@@ -15,17 +15,9 @@
         id, name, age, email
     </sql>
 
-<<<<<<< HEAD:open-dao/src/main/java/org/open/boot/dao/user/xml/UserMapper.xml
     <select id="selectByUserId" resultMap="BaseResultMap">
-=======
-    <select id="selectByUserIds" resultMap="BaseResultMap">
->>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020:open-dao/src/main/resources/mapper/user/UserMapper.xml
         SELECT <include refid="Base_Column_List"/>
         FROM user
         WHERE id = #{userId}
     </select>
-<<<<<<< HEAD:open-dao/src/main/java/org/open/boot/dao/user/xml/UserMapper.xml
-=======
-
->>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020:open-dao/src/main/resources/mapper/user/UserMapper.xml
 </mapper>

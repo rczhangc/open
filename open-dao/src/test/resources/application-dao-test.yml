@@ -6,5 +6,9 @@ spring:
     data: classpath:db/data-mysql.sql
     url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
     username: root
+<<<<<<< HEAD
+    password: Root.123456
+=======
     password: 123456
 
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

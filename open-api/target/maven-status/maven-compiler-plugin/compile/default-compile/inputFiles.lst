@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+/Users/zhangrongchang/IdeaProjects/open/open-api/src/main/java/org/open/boot/api/user/UserApi.java
+/Users/zhangrongchang/IdeaProjects/open/open-api/src/main/java/org/open/boot/api/user/dto/UserDTO.java
+=======
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallTradeSendDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallTradeDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsModeListShowDTO.java
@@ -16,3 +20,4 @@ D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsM
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsResponseDTO.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\KdzsOrderApi.java
 D:\IdeaProjects\open\open-api\src\main\java\org\open\boot\api\kuaidizs\dto\KdzsMallTradeUpdateDTO.java
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020

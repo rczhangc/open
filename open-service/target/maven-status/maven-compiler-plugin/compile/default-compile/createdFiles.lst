@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+org/open/boot/service/user/impl/UserServiceImpl.class
+org/open/boot/api/user/impl/UserApiImpl.class
+org/open/boot/service/user/UserService.class
+=======
 org\open\boot\api\kuaidizs\enums\KdzsMethodEnum.class
 org\open\boot\api\kuaidizs\exception\KdzsException.class
 org\open\boot\service\page\PageService.class
@@ -17,3 +22,4 @@ org\open\boot\api\kuaidizs\impl\KdzsWaybillApiImpl$1.class
 org\open\boot\api\kuaidizs\impl\KdzsWaybillApiImpl.class
 org\open\boot\api\kuaidizs\constants\KdzsConstants$MethodUrl.class
 org\open\boot\service\page\impl\PageServiceImpl.class
+>>>>>>> 6c93c63cc08ab6b62be4be8fdcd03bdda9328020
