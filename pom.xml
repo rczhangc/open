@@ -22,6 +22,8 @@
     <module>open-controller</module>
     <module>open-api</module>
     <module>open-test</module>
+      <module>open-spring</module>
+    <module>spring-core</module>
   </modules>
 
   <name>open</name>
