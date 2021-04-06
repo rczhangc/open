@@ -6,8 +6,6 @@ import org.open.boot.service.order.unit.OrderContext;
 
 import javax.annotation.Resource;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * @author barnak
  */

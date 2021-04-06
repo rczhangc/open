@@ -23,7 +23,6 @@ public abstract class AbstractActExecuteService<T extends ActContext> implements
     private final List<ActUnit<T>> unitList = new ArrayList<>();
 
     public AbstractActExecuteService() {
-        System.out.println("AbstractActExecuteService 进行初始化");
         List<Class<? extends ActUnit<T>>> unitClassList = new ArrayList<>();
         initActUnitClass(unitClassList);
         if (CollectionUtils.isEmpty(unitClassList)) {
@@ -31,7 +30,7 @@ public abstract class AbstractActExecuteService<T extends ActContext> implements
         }
         try {
             for (Class<? extends ActUnit<T>> clazz : unitClassList) {
-                unitList.add(SpringContextUtil.getBean(clazz));
+                unitList.add(clazz.newInstance());
             }
         } catch (Exception e) {
             throw new RuntimeException("动作单元初始化失败", e);
