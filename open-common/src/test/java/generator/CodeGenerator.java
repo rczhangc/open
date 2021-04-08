@@ -21,8 +21,8 @@ public class CodeGenerator {
         initGeneratorMap();
         List<ModuleInfo> moduleInfoList = new ArrayList<>();
         ModuleInfo module = new ModuleInfo();
-        module.setModuleName("page");
-        module.setTableNameList(Collections.singletonList("page"));
+        module.setModuleName("goods");
+        module.setTableNameList(Arrays.asList("goods","goods_sku","goods_detail"));
         module.setTablePrefix("");
         moduleInfoList.add(module);
         autoGenerator(moduleInfoList);

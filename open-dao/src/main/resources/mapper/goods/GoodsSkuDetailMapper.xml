@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.open.boot.dao.goods.impl.GoodsSkuDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="org.open.boot.dao.goods.entity.GoodsSkuDetailDO">
+        <id column="id" property="id" />
+        <result column="sku_make_code" property="skuMakeCode" />
+        <result column="sku_make_value_list" property="skuMakeValueList" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler" />
+        <result column="img_url" property="imgUrl" />
+        <result column="price" property="price" />
+        <result column="price_original" property="priceOriginal" />
+        <result column="price_cost" property="priceCost" />
+        <result column="stock_total" property="stockTotal" />
+        <result column="stock_lock" property="stockLock" />
+        <result column="stock_surplus" property="stockSurplus" />
+        <result column="sort" property="sort" />
+        <result column="insert_time" property="insertTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, sku_make_code, sku_make_value_list, img_url, price, price_original, price_cost, stock_total, stock_lock, stock_surplus, sort, insert_time, update_time, is_deleted
+    </sql>
+
+</mapper>
