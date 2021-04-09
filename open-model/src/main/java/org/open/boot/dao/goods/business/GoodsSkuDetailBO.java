@@ -16,7 +16,7 @@ public class GoodsSkuDetailBO extends GoodsSkuDetailDO implements Serializable {
     public String toString() {
         return "GoodsDetailBO{" +
                 "id=" + super.getId() +
-                ", skuMakeCode=" + super.getSkuMakeCode() +
+                ", skuMakeCode=" + super.getSkuMakeValueCode() +
                 ", skuMakeValue=" + super.getSkuMakeValueList() +
                 ", imgUrl=" + super.getImgUrl() +
                 ", price=" + super.getPrice() +

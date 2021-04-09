@@ -6,8 +6,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
+
 import java.io.Serializable;
-import com.baomidou.mybatisplus.annotation.*;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,7 +20,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author barnak
  */
-@TableName("goods")
+@TableName(value = "goods", autoResultMap = true)
 public class GoodsDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,15 +48,15 @@ public class GoodsDO implements Serializable {
      * 商品名称
      */
     @NotNull
-    @TableField("name")
-    private String name;
+    @TableField("named")
+    private String named;
 
     /**
      * 商品描述
      */
     @NotBlank
-    @TableField("describe")
-    private String describe;
+    @TableField("description")
+    private String description;
 
     /**
      * 商品状态：10下架 20上架
@@ -67,15 +69,15 @@ public class GoodsDO implements Serializable {
      * 商品封面图
      */
     @NotNull
-    @TableField("img_cover_url")
-    private String imgCoverUrl;
+    @TableField(value = "img_cover_url_list", typeHandler = FastjsonTypeHandler.class)
+    private List<String> imgCoverUrlList;
 
     /**
      * 商品详情图
      */
     @NotNull
-    @TableField("img_details_url")
-    private String imgDetailsUrl;
+    @TableField(value = "img_details_url_list", typeHandler = FastjsonTypeHandler.class)
+    private List<String> imgDetailsUrlList;
 
     /**
      * 商品实际价格
@@ -144,21 +146,21 @@ public class GoodsDO implements Serializable {
         return this;
     }
 
-    public String getName() {
-        return name;
+    public String getNamed() {
+        return named;
     }
 
-    public GoodsDO setName(String name) {
-        this.name = name;
+    public GoodsDO setNamed(String named) {
+        this.named = named;
         return this;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescription() {
+        return description;
     }
 
-    public GoodsDO setDescribe(String describe) {
-        this.describe = describe;
+    public GoodsDO setDescription(String description) {
+        this.description = description;
         return this;
     }
 
@@ -171,21 +173,21 @@ public class GoodsDO implements Serializable {
         return this;
     }
 
-    public String getImgCoverUrl() {
-        return imgCoverUrl;
+    public List<String> getImgCoverUrlList() {
+        return imgCoverUrlList;
     }
 
-    public GoodsDO setImgCoverUrl(String imgCoverUrl) {
-        this.imgCoverUrl = imgCoverUrl;
+    public GoodsDO setImgCoverUrlList(List<String> imgCoverUrlList) {
+        this.imgCoverUrlList = imgCoverUrlList;
         return this;
     }
 
-    public String getImgDetailsUrl() {
-        return imgDetailsUrl;
+    public List<String> getImgDetailsUrlList() {
+        return imgDetailsUrlList;
     }
 
-    public GoodsDO setImgDetailsUrl(String imgDetailsUrl) {
-        this.imgDetailsUrl = imgDetailsUrl;
+    public GoodsDO setImgDetailsUrlList(List<String> imgDetailsUrlList) {
+        this.imgDetailsUrlList = imgDetailsUrlList;
         return this;
     }
 
@@ -246,20 +248,20 @@ public class GoodsDO implements Serializable {
     @Override
     public String toString() {
         return "GoodsDO{" +
-            "id=" + id +
-            ", code=" + code +
-            ", title=" + title +
-            ", name=" + name +
-            ", describe=" + describe +
-            ", status=" + status +
-            ", imgCoverUrl=" + imgCoverUrl +
-            ", imgDetailsUrl=" + imgDetailsUrl +
-            ", price=" + price +
-            ", priceOriginal=" + priceOriginal +
-            ", priceCost=" + priceCost +
-            ", insertTime=" + insertTime +
-            ", updateTime=" + updateTime +
-            ", isDeleted=" + isDeleted +
-            "}";
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", title='" + title + '\'' +
+                ", named='" + named + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", imgCoverUrlList=" + imgCoverUrlList +
+                ", imgDetailsUrlList=" + imgDetailsUrlList +
+                ", price=" + price +
+                ", priceOriginal=" + priceOriginal +
+                ", priceCost=" + priceCost +
+                ", insertTime=" + insertTime +
+                ", updateTime=" + updateTime +
+                ", isDeleted=" + isDeleted +
+                '}';
     }
 }

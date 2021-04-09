@@ -9,7 +9,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import java.util.List;
 
-import org.open.boot.dao.goods.business.GoodsDetailSkuValueBO;
+import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
+import org.open.boot.dao.goods.business.GoodsSkuMakeValueBO;
 
 
 /**
@@ -17,7 +18,7 @@ import org.open.boot.dao.goods.business.GoodsDetailSkuValueBO;
  *
  * @author barnak
  */
-@TableName("goods_sku_detail")
+@TableName(value = "goods_sku_detail", autoResultMap = true)
 public class GoodsSkuDetailDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,16 +30,22 @@ public class GoodsSkuDetailDO implements Serializable {
     private Long id;
 
     /**
+     * 商品ID
+     */
+    @TableField("goods_code")
+    private String goodsCode;
+
+    /**
      * 规格编码组合
      */
-    @TableField("sku_make_code")
-    private String skuMakeCode;
+    @TableField("sku_make_value_code")
+    private String skuMakeValueCode;
 
     /**
      * 规格值组合
      */
-    @TableField("sku_make_value_list")
-    private List<GoodsDetailSkuValueBO> skuMakeValueList;
+    @TableField(value = "sku_make_value_list", typeHandler = FastjsonTypeHandler.class)
+    private List<GoodsSkuMakeValueBO> skuMakeValueList;
 
     /**
      * 规格图
@@ -68,19 +75,19 @@ public class GoodsSkuDetailDO implements Serializable {
      * 总库存（锁定库存+可用库存）
      */
     @TableField("stock_total")
-    private String stockTotal;
+    private Integer stockTotal;
 
     /**
      * 锁定库存
      */
     @TableField("stock_lock")
-    private String stockLock;
+    private Integer stockLock;
 
     /**
      * 可用库存
      */
     @TableField("stock_surplus")
-    private String stockSurplus;
+    private Integer stockSurplus;
 
     /**
      * 规格组合排序
@@ -116,20 +123,28 @@ public class GoodsSkuDetailDO implements Serializable {
         return this;
     }
 
-    public String getSkuMakeCode() {
-        return skuMakeCode;
+    public String getGoodsCode() {
+        return goodsCode;
     }
 
-    public GoodsSkuDetailDO setSkuMakeCode(String skuMakeCode) {
-        this.skuMakeCode = skuMakeCode;
+    public void setGoodsCode(String goodsCode) {
+        this.goodsCode = goodsCode;
+    }
+
+    public String getSkuMakeValueCode() {
+        return skuMakeValueCode;
+    }
+
+    public GoodsSkuDetailDO setSkuMakeValueCode(String skuMakeValueCode) {
+        this.skuMakeValueCode = skuMakeValueCode;
         return this;
     }
 
-    public List<GoodsDetailSkuValueBO> getSkuMakeValueList() {
+    public List<GoodsSkuMakeValueBO> getSkuMakeValueList() {
         return skuMakeValueList;
     }
 
-    public GoodsSkuDetailDO setSkuMakeValueList(List<GoodsDetailSkuValueBO> skuMakeValueList) {
+    public GoodsSkuDetailDO setSkuMakeValueList(List<GoodsSkuMakeValueBO> skuMakeValueList) {
         this.skuMakeValueList = skuMakeValueList;
         return this;
     }
@@ -170,29 +185,29 @@ public class GoodsSkuDetailDO implements Serializable {
         return this;
     }
 
-    public String getStockTotal() {
+    public Integer getStockTotal() {
         return stockTotal;
     }
 
-    public GoodsSkuDetailDO setStockTotal(String stockTotal) {
+    public GoodsSkuDetailDO setStockTotal(Integer stockTotal) {
         this.stockTotal = stockTotal;
         return this;
     }
 
-    public String getStockLock() {
+    public Integer getStockLock() {
         return stockLock;
     }
 
-    public GoodsSkuDetailDO setStockLock(String stockLock) {
+    public GoodsSkuDetailDO setStockLock(Integer stockLock) {
         this.stockLock = stockLock;
         return this;
     }
 
-    public String getStockSurplus() {
+    public Integer getStockSurplus() {
         return stockSurplus;
     }
 
-    public GoodsSkuDetailDO setStockSurplus(String stockSurplus) {
+    public GoodsSkuDetailDO setStockSurplus(Integer stockSurplus) {
         this.stockSurplus = stockSurplus;
         return this;
     }
@@ -237,7 +252,7 @@ public class GoodsSkuDetailDO implements Serializable {
     public String toString() {
         return "GoodsDetailDO{" +
             "id=" + id +
-            ", skuMakeCode=" + skuMakeCode +
+            ", skuMakeCode=" + skuMakeValueCode +
             ", skuMakeValue=" + skuMakeValueList +
             ", imgUrl=" + imgUrl +
             ", price=" + price +

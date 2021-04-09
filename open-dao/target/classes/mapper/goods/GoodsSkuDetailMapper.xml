@@ -5,7 +5,8 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="org.open.boot.dao.goods.entity.GoodsSkuDetailDO">
         <id column="id" property="id" />
-        <result column="sku_make_code" property="skuMakeCode" />
+        <result column="goods_code" property="goodsCode" />
+        <result column="sku_make_value_code" property="skuMakeValueCode" />
         <result column="sku_make_value_list" property="skuMakeValueList" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler" />
         <result column="img_url" property="imgUrl" />
         <result column="price" property="price" />
@@ -22,7 +23,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, sku_make_code, sku_make_value_list, img_url, price, price_original, price_cost, stock_total, stock_lock, stock_surplus, sort, insert_time, update_time, is_deleted
+        id, goods_code, sku_make_value_code, sku_make_value_list, img_url, price, price_original, price_cost, stock_total, stock_lock, stock_surplus, sort, insert_time, update_time, is_deleted
     </sql>
 
 </mapper>

@@ -1,14 +1,21 @@
 package org.open.boot.dao.goods.business;
 
 /**
+ * 商品规格详情值
+ *
  * @author barnak
  */
-public class GoodsDetailSkuValueBO {
+public class GoodsSkuMakeValueBO {
 
     /**
      * 规格编码
      */
     private String skuCode;
+
+    /**
+     * 规格值编码
+     */
+    private String skuValueCode;
 
     /**
      * 规格名称
@@ -26,6 +33,14 @@ public class GoodsDetailSkuValueBO {
 
     public void setSkuCode(String skuCode) {
         this.skuCode = skuCode;
+    }
+
+    public String getSkuValueCode() {
+        return skuValueCode;
+    }
+
+    public void setSkuValueCode(String skuValueCode) {
+        this.skuValueCode = skuValueCode;
     }
 
     public String getSkuName() {

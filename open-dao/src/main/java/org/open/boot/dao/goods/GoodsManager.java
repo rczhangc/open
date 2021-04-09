@@ -17,5 +17,15 @@ public interface GoodsManager {
      * @param save 需要保存的商品信息 {@link GoodsBO}
      * @return 保存后的商品信息 {@link GoodsBO}
      */
-    GoodsBO save(GoodsBO save);
+    GoodsBO saveGoodsInfo(GoodsBO save);
+
+    /**
+     * 保存单个商品信息
+     *
+     * @param save {@link GoodsDO}
+     * @return {@link GoodsDO}
+     */
+    boolean saveGoodsInfo(GoodsDO save);
+
+    GoodsDO getById(Long id);
 }

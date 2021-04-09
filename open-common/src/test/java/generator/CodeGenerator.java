@@ -22,7 +22,7 @@ public class CodeGenerator {
         List<ModuleInfo> moduleInfoList = new ArrayList<>();
         ModuleInfo module = new ModuleInfo();
         module.setModuleName("goods");
-        module.setTableNameList(Arrays.asList("goods","goods_sku","goods_detail"));
+        module.setTableNameList(Arrays.asList("goods_sku_value"));
         module.setTablePrefix("");
         moduleInfoList.add(module);
         autoGenerator(moduleInfoList);

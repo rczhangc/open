@@ -7,8 +7,8 @@
         <id column="id" property="id" />
         <result column="code" property="code" />
         <result column="title" property="title" />
-        <result column="name" property="name" />
-        <result column="describe" property="describe" />
+        <result column="named" property="named" />
+        <result column="description" property="description" />
         <result column="status" property="status" />
         <result column="img_cover_url" property="imgCoverUrl" />
         <result column="img_details_url" property="imgDetailsUrl" />
@@ -22,7 +22,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, code, title, name, describe, status, img_cover_url, img_details_url, price, price_original, price_cost, insert_time, update_time, is_deleted
+        id, code, title, named, description, status, img_cover_url, img_details_url, price, price_original, price_cost, insert_time, update_time, is_deleted
     </sql>
 
 </mapper>

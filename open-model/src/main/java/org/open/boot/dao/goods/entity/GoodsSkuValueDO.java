@@ -6,15 +6,16 @@ import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.*;
 
 
 /**
- * 商品规格信息表实体类
+ * 商品规格值信息表实体类
  *
  * @author barnak
  */
-@TableName(value = "goods_sku")
-public class GoodsSkuDO implements Serializable {
+@TableName("goods_sku_value")
+public class GoodsSkuValueDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,7 +26,7 @@ public class GoodsSkuDO implements Serializable {
     private Long id;
 
     /**
-     * 商品ID
+     * 商品编码
      */
     @TableField("goods_code")
     private String goodsCode;
@@ -33,20 +34,20 @@ public class GoodsSkuDO implements Serializable {
     /**
      * 规格编码
      */
+    @TableField("goods_sku_code")
+    private String goodsSkuCode;
+
+    /**
+     * 规格值编码
+     */
     @TableField("code")
     private String code;
 
     /**
-     * 规格名称
+     * 规格值
      */
-    @TableField("named")
-    private String named;
-
-    /**
-     * 规格描述
-     */
-    @TableField("description")
-    private String description;
+    @TableField("value")
+    private String value;
 
     /**
      * 新增时间
@@ -71,7 +72,7 @@ public class GoodsSkuDO implements Serializable {
         return id;
     }
 
-    public GoodsSkuDO setId(Long id) {
+    public GoodsSkuValueDO setId(Long id) {
         this.id = id;
         return this;
     }
@@ -80,34 +81,35 @@ public class GoodsSkuDO implements Serializable {
         return goodsCode;
     }
 
-    public void setGoodsCode(String goodsCode) {
+    public GoodsSkuValueDO setGoodsCode(String goodsCode) {
         this.goodsCode = goodsCode;
+        return this;
+    }
+
+    public String getGoodsSkuCode() {
+        return goodsSkuCode;
+    }
+
+    public GoodsSkuValueDO setGoodsSkuCode(String goodsSkuCode) {
+        this.goodsSkuCode = goodsSkuCode;
+        return this;
     }
 
     public String getCode() {
         return code;
     }
 
-    public GoodsSkuDO setCode(String code) {
+    public GoodsSkuValueDO setCode(String code) {
         this.code = code;
         return this;
     }
 
-    public String getNamed() {
-        return named;
+    public String getValue() {
+        return value;
     }
 
-    public GoodsSkuDO setNamed(String named) {
-        this.named = named;
-        return this;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public GoodsSkuDO setDescription(String description) {
-        this.description = description;
+    public GoodsSkuValueDO setValue(String value) {
+        this.value = value;
         return this;
     }
 
@@ -115,7 +117,7 @@ public class GoodsSkuDO implements Serializable {
         return insertTime;
     }
 
-    public GoodsSkuDO setInsertTime(Date insertTime) {
+    public GoodsSkuValueDO setInsertTime(Date insertTime) {
         this.insertTime = insertTime;
         return this;
     }
@@ -124,7 +126,7 @@ public class GoodsSkuDO implements Serializable {
         return updateTime;
     }
 
-    public GoodsSkuDO setUpdateTime(Date updateTime) {
+    public GoodsSkuValueDO setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
         return this;
     }
@@ -133,18 +135,19 @@ public class GoodsSkuDO implements Serializable {
         return isDeleted;
     }
 
-    public GoodsSkuDO setIsDeleted(Long isDeleted) {
+    public GoodsSkuValueDO setIsDeleted(Long isDeleted) {
         this.isDeleted = isDeleted;
         return this;
     }
 
     @Override
     public String toString() {
-        return "GoodsSkuDO{" +
+        return "GoodsSkuValueDO{" +
             "id=" + id +
+            ", goodsCode=" + goodsCode +
+            ", goodsSkuCode=" + goodsSkuCode +
             ", code=" + code +
-            ", name=" + named +
-            ", describe=" + description +
+            ", value=" + value +
             ", insertTime=" + insertTime +
             ", updateTime=" + updateTime +
             ", isDeleted=" + isDeleted +

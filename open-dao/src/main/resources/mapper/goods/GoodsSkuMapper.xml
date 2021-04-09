@@ -5,10 +5,10 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="org.open.boot.dao.goods.entity.GoodsSkuDO">
         <id column="id" property="id" />
+        <result column="goods_code" property="goodsCode" />
         <result column="code" property="code" />
-        <result column="name" property="name" />
-        <result column="value_list" property="valueList" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler" />
-        <result column="describe" property="describe" />
+        <result column="named" property="named" />
+        <result column="description" property="description" />
         <result column="insert_time" property="insertTime" />
         <result column="update_time" property="updateTime" />
         <result column="is_deleted" property="isDeleted" />
@@ -16,7 +16,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, code, name, value_list, describe, insert_time, update_time, is_deleted
+        id, goods_code, code, named, value_list, description, insert_time, update_time, is_deleted
     </sql>
 
 </mapper>
