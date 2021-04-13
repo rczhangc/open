@@ -20,6 +20,14 @@ public interface GoodsManager {
     GoodsBO saveGoodsInfo(GoodsBO save);
 
     /**
+     * 修改商品信息
+     *
+     * @param update {@link GoodsBO}
+     * @return {@link GoodsBO}
+     */
+    GoodsBO updateGoodsInfo(GoodsBO update);
+
+    /**
      * 保存单个商品信息
      *
      * @param save {@link GoodsDO}

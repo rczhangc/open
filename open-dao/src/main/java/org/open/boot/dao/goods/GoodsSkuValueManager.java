@@ -13,5 +13,11 @@ import java.util.List;
  */
 public interface GoodsSkuValueManager extends IService<GoodsSkuValueDO> {
 
+    /**
+     * 获取商品所有规格值列表
+     *
+     * @param save {@link GoodsBO}
+     * @return {@link List<GoodsSkuValueDO>}
+     */
     List<GoodsSkuValueDO> getGoodsSkuValueList(GoodsBO save);
 }

@@ -16,6 +16,10 @@ public interface Constants {
          * 西文句号
          */
         String EN_FULL_STOP = ".";
-    }
 
+        /**
+         * 下划线
+         */
+        String UNDERLINE = "_";
+    }
 }

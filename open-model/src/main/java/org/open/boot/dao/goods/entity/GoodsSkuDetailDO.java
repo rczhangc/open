@@ -36,6 +36,12 @@ public class GoodsSkuDetailDO implements Serializable {
     private String goodsCode;
 
     /**
+     * 商品规格详情编码
+     */
+    @TableField("code")
+    private String code;
+
+    /**
      * 规格编码组合
      */
     @TableField("sku_make_value_code")
@@ -129,6 +135,14 @@ public class GoodsSkuDetailDO implements Serializable {
 
     public void setGoodsCode(String goodsCode) {
         this.goodsCode = goodsCode;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getSkuMakeValueCode() {

@@ -42,6 +42,7 @@ CREATE TABLE `goods_sku` (
   `is_deleted` BIGINT(13) NOT NULL DEFAULT '0' COMMENT '已删除：0否',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_goods_sku_code` (`code`),
+  UNIQUE KEY `uq_goods_sku_named` (`goods_code`, `named`, `is_deleted`),
   KEY `idx_goods_code` (`goods_code`),
   KEY `idx_deleted` (`is_deleted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品规格信息表';
@@ -58,6 +59,7 @@ CREATE TABLE `goods_sku_value` (
   `is_deleted` BIGINT(13) NOT NULL DEFAULT '0' COMMENT '已删除：0否',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_goods_sku_value_code` (`code`),
+  UNIQUE KEY `uq_goods_sku_value` (`goods_sku_code`, `value`, `is_deleted`),
   KEY `idx_goods_code` (`goods_code`),
   KEY `idx_goods_sku_code` (`goods_sku_code`),
   KEY `idx_deleted` (`is_deleted`)
@@ -67,6 +69,7 @@ DROP TABLE IF EXISTS `goods_sku_detail`;
 CREATE TABLE `goods_sku_detail` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '商品规格详情ID',
   `goods_code` VARCHAR(32) NOT NULL COMMENT '商品编码',
+  `code` VARCHAR(32) NOT NULL COMMENT '商品规格详情编码',
   `sku_make_value_code` VARCHAR(128) NOT NULL COMMENT '规格值编码组合',
   `sku_make_value_list` JSON NOT NULL COMMENT '规格值组合列表',
   `img_url` VARCHAR(128) NOT NULL DEFAULT '' COMMENT '规格图',
