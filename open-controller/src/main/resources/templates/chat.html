@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>品茗IT-WebSocket测试</title>
+
+    <!-- CSS  -->
+    <link href="https://lib.baomitu.com/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+    <link href="https://lib.baomitu.com/materialize/0.100.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+body { text-align:left; margin:0; font:normal 12px Verdana, Arial;
+background:#FFEEFF } form { margin:0; font:normal 12px Verdana,
+Arial; } table,input { font:normal 12px Verdana, Arial; }
+a:link,a:visited{ text-decoration:none; color:#333333; } a:hover{
+text-decoration:none; color:#FF6600 } #main { width:400px;
+position:absolute; left:600px; top:100px; background:#EFEFFF;
+text-align:left; filter:Alpha(opacity=90) } #ChatHead {
+text-align:right; padding:3px; border:1px solid #003399;
+background:#DCDCFF; font-size:20px; color:#3366FF; cursor:move; }
+#ChatHead a:link,#ChatHead a:visited, { font-size:14px;
+font-weight:bold; padding:0 3px } #ChatBody { border:1px solid
+#003399; border-top:none; padding:2px; } #ChatContent {
+height:200px; padding:6px; overflow-y:scroll; word-break: break-all
+}#ChatBtn { border-top:1px solid #003399; padding:2px }
+		
+  </style>
+</head>
+<script type="text/javascript">
+var ws = null;
+var curUser=null;
+var chatUser = null;
+var imgName = null;
+var fileImgSize = 0;
+window.onbeforeunload = function()
+{
+	disconnect(ws);
+}
+
+function gs(d) {
+	var t = document.getElementById(d);
+	if (t) {
+		return t.style;
+	} else {
+		return null;
+	}
+}
+function gs2(d, a) {
+	if (d.currentStyle) {
+		var curVal = d.currentStyle[a]
+	} else {
+		var curVal = document.defaultView
+				.getComputedStyle(d, null)[a]
+	}
+	return curVal;
+}
+function ChatHidden() {
+	gs("ChatBody").display = "none";
+}
+function ChatShow() {
+	gs("ChatBody").display = "";
+}
+function ChatClose() {
+	gs("main").display = "none";
+}
+function ChatNew(userId) {
+	gs("main").display = "";
+	chatUser = userId;
+	$("#ChatUsers").html(chatUser);
+	$('.emotion').qqFace({
+
+		id : 'facebox', 
+
+		assign:'saytext', 
+
+		path: './img/arclist/'	//表情存放的路径
+
+	});
+}
+function ChatClear(obj) {
+	$("#ChatContent").html("");
+}
+
+function ChatRead() {
+	if(document.getElementById(chatUser)){
+		document.getElementById(chatUser).setAttribute('src', './img/users.png');
+	}
+}
+
+function ChatSend(obj) {
+	var o = obj.ChatValue;
+	var msg = replace_em(o.value);
+	if (o.value.length > 0) {
+		$("#ChatContent").append(
+				"<p align=\"right\"><strong>" + curUser + "(我) ：</strong>" + msg
+						+ "</p>");
+		var number = $("#ChatContent").scrollTop();
+    	number += 16;
+    	$("#ChatContent").scrollTop(number);
+    	if(ws!=null){
+    		var json={"fromUserName":curUser,"targetUserName":chatUser,"message":o.value,"messageType":"1000"};
+    		// encodeURI(o.value)
+    		console.log(json);
+    		ws.send(JSON.stringify(json));
+    	}
+		o.value = '';
+	}
+	
+	var img = obj.ChatFile;
+	if (img.value.length > 0){
+		$("#ChatContent").append(
+				"<p align=\"right\"><strong>" + nickName + "(我) ：</strong>" + img.value
+						+ "</p><br/>");
+
+		imgName = nickName+'（我）';
+		fileImgSize = img.files.length;
+		//alert(fileImgSize);
+		$.ajaxFileUpload({
+			//处理文件上传操作的服务器端地址(可以传参数,已亲测可用)
+			url:'im/fileUpload?userId='+muserId,
+			secureuri:true,                       //是否启用安全提交,默认为false 
+			fileElementId:'ChatFile',           //文件选择框的id属性
+			dataType:'text',                       //服务器返回的格式,可以是json或xml等
+			success:function(data, status){        //服务器响应成功时的处理函数
+				//$("#ChatContent").append("<p align=\"right\">" + data + "</p><br/>");
+			},
+			error:function(data, status, e){ //服务器响应失败时的处理函数
+				$("#ChatContent").append('<p align=\"right\">图片上传失败，请重试！！</p><br/>');
+				imgName = msgUser;
+			}
+		});
+	}
+}
+	if (document.getElementById) {
+		(function() {
+			if (window.opera) {
+				document.write("<input type='hidden' id='Q' value=' '>");
+			}
+
+			var n = 500;
+			var dragok = false;
+			var y, x, d, dy, dx;
+
+			function move(e) {
+				if (!e)
+					e = window.event;
+				if (dragok) {
+					d.style.left = dx + e.clientX - x + "px";
+					d.style.top = dy + e.clientY - y + "px";
+					return false;
+				}
+			}
+
+			function down(e) {
+				if (!e)
+					e = window.event;
+				var temp = (typeof e.target != "undefined") ? e.target
+						: e.srcElement;
+				if (temp.tagName != "HTML" | "BODY"
+						&& temp.className != "dragclass") {
+					temp = (typeof temp.parentNode != "undefined") ? temp.parentNode
+							: temp.parentElement;
+				}
+				if ('TR' == temp.tagName) {
+					temp = (typeof temp.parentNode != "undefined") ? temp.parentNode
+							: temp.parentElement;
+					temp = (typeof temp.parentNode != "undefined") ? temp.parentNode
+							: temp.parentElement;
+					temp = (typeof temp.parentNode != "undefined") ? temp.parentNode
+							: temp.parentElement;
+				}
+
+				if (temp.className == "dragclass") {
+					if (window.opera) {
+						document.getElementById("Q").focus();
+					}
+					dragok = true;
+					temp.style.zIndex = n++;
+					d = temp;
+					dx = parseInt(gs2(temp, "left")) | 0;
+					dy = parseInt(gs2(temp, "top")) | 0;
+					x = e.clientX;
+					y = e.clientY;
+					document.onmousemove = move;
+					return false;
+				}
+			}
+
+			function up() {
+				dragok = false;
+				document.onmousemove = null;
+			}
+
+			document.onmousedown = down;
+			document.onmouseup = up;
+
+		})();
+	}
+	
+	function toIndex(){
+		window.location.href= contextPath + "/index.jsp";
+	}
+
+</script>
+<body>
+<div id="main" class="dragclass" onclick="ChatRead()" style="left: 400px; top: 200px;">
+		<div id="ChatUsers" style="width:100px; padding:3px; font-size:15px;float:left; display:inline"></div>
+		<div id="ChatHead">
+			<a href="#" onclick="ChatHidden();">-</a> <a href="#"
+				onclick="ChatShow();">+</a> <a href="#" onclick="ChatClose();">x</a>
+		</div>
+		<div id="ChatBody">
+			<div id="ChatContent"></div>
+			<div id="ChatBtn">
+				<form action="" name="chat" method="post">
+					<textarea name="ChatValue" id="saytext" rows="3" style="width: 350px"></textarea>
+					<input name="Submit" type="button" value="发送"
+						onclick="ChatSend(this.form);" />
+					<input name="ClearMsg" type="button" value="清空记录"
+						onclick="ChatClear(this.form);" />
+					<input type="button" class="emotion" value="表情">
+					<input id="ChatFile" type="file" name="myfiles"  multiple>   
+				</form>
+			</div>
+		</div>
+</div>
+<div id="modalAddUser" class="modal modal-fixed-footer" style="max-width:400px;max-height:400px">
+    <div class="modal-content">
+      <h4>生成用户名</h4>
+      	<div class="row center">
+	     	<input class="browser-default searchInput" placeholder="请输入用户名" style="margin-top:50px;margin-left:20px;max-width:300px" id="catoryAddText" type="text" >
+	     	
+	 	</div>
+	 	<div class="row center">				          		
+     		<a class="waves-effect waves-light btn" id="userAddBtn" style="color:white;"><i class="material-icons" style="font-size:1.1rem">添用户</i></a>
+     	</div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">关闭</a>
+    </div>
+</div>
+<div align="left" style="margin-top: 50px;margin-left: 20px;">
+	<p>欢迎您，
+		<span id="userName">匿名用户</span>
+	</p>
+	<a id="addUser" class="btn waves-effect waves-light white cyan-text" style="border-radius: 40px;">添加用户</a>
+	<p id="content"></p>
+</div>
+<script src="https://lib.baomitu.com/jquery/3.3.0/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="./js/websocket.js"></script>
+<script src="./js/ajaxfileupload.js"></script>
+<script src="./js/jquery-browser.js"></script>
+<script src="./js/jquery.qqFace.js"></script>
+<script>
+function getUser(){
+	$.ajax({
+		type : "get",
+		url : "im/user",
+		dataType : "json",
+		data : {} ,
+		success : function(data) {
+			if(data.errorCode == "0000"){
+				$("#userName").html(data.data);
+				curUser = data.data;
+			}
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(errorThrown);
+		}
+	});
+}	
+function addUser(userName){
+	$.ajax({
+		type : "post",
+		url : "im/setUser",
+		dataType : "json",
+		data : {"userName":userName} ,
+		success : function(data) {
+			if(data.errorCode == "0000"){
+				$("#userName").html(userName);
+				curUser = data.data;
+			}
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(errorThrown);
+		}
+	});
+}
+function userList(){
+	$.ajax({
+		type : "get",
+		url : "im/userList",
+		dataType : "json",
+		data : {} ,
+		success : function(data) {
+			if(data.errorCode == "0000"){
+				var content = "";
+				for(var i =0;i<data.data.length;i++){
+					var userId = data.data[i];
+					content += "<img src=\"./img/msgget.gif\" id=\""
+						+ userId
+						+ "\" alt=\"\" style=\"cursor: pointer\" width='40px' "
+						+ "onclick=\"ChatNew('"+userId+"')\" />"
+						+ userId
+						+ "<br><br>";
+				}
+		    	$("#content").append(content);
+			}
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(errorThrown);
+		}
+	});
+}
+
+window.onbeforeunload = function(){
+	disconnect(ws);
+}
+$(function () {
+	$('.modal').modal({
+		dismissible: true, // 点击模态外面模态消失关闭
+		opacity: 0.1, // 相对于背景的不透明度
+		in_duration: 300, // 显示特效的时间
+		out_duration: 200, // 消失特效时间
+		starting_top: '80%', // 启动时的样式属性
+		ending_top: '20%', // 结束时的样式属性
+		ready: function(modal, trigger) { // 模态加载完成触发事件
+			
+		},
+		complete: function() { 
+			
+		} // 关闭时触发的事件
+	});
+	getUser();
+	$("#addUser").click(function() {
+    	$('#modalAddUser').modal('open');	
+	});
+	
+	$("#userAddBtn").click(function() {
+		var catory = $('#catoryAddText').val();
+		addUser(catory);
+	});
+	userList();
+	if (ws == null) {
+		var url = getUrl();
+	    //alert("url:"+url);  
+	    if (!url) {  
+	        return;  
+	    }  
+		console.log(url);
+	    ws = new WebSocket(url);  
+		connect(ws);
+		ChatClose();
+	}
+});
+</script>
+</body>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e553ae2bb23494dee9b6f43415a1ce5a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

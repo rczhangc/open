@@ -19,4 +19,8 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    @RequestMapping
+    public String test(){
+        return "hello";
+    }
 }

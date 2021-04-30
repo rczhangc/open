@@ -22,8 +22,7 @@
     <module>open-controller</module>
     <module>open-api</module>
     <module>open-test</module>
-      <module>open-spring</module>
-    <module>spring-core</module>
+    <module>open-spring</module>
   </modules>
 
   <name>open</name>
@@ -54,6 +53,13 @@
     <commons-collections4.version>4.3</commons-collections4.version>
     <hutool-all.version>5.5.9</hutool-all.version>
     <jmockdata.version>4.1.2</jmockdata.version>
+    <websocket.version>1.1</websocket.version>
+    <netty-all.version>4.1.6.Final</netty-all.version>
+    <guava.version>19.0</guava.version>
+    <lombok.version>1.18.2</lombok.version>
+    <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
+    <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+    <userAgentUtils.version>1.21</userAgentUtils.version>
   </properties>
 
   <!-- 公共依赖 -->
@@ -63,9 +69,20 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- websocket -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-websocket</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+    <!-- lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -77,6 +94,10 @@
   <!-- 依赖版本控制 -->
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+      </dependency>
       <!-- 内部依赖 -->
       <!-- Open Common -->
       <dependency>
@@ -187,6 +208,34 @@
         <groupId>com.github.jsonzou</groupId>
         <artifactId>jmockdata</artifactId>
         <version>${jmockdata.version}</version>
+      </dependency>
+      <!-- webSocket -->
+      <dependency>
+        <groupId>javax.websocket</groupId>
+        <artifactId>javax.websocket-api</artifactId>
+        <version>${websocket.version}</version>
+      </dependency>
+      <!--netty的依赖集合，都整合在一个依赖里面了-->
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-all</artifactId>
+        <version>${netty-all.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>eu.bitwalker</groupId>
+        <artifactId>UserAgentUtils</artifactId>
+        <version>${userAgentUtils.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

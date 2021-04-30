@@ -29,6 +29,14 @@ public class CodeUtil {
         return CodeRegEx.GOODS_SKU_DETAIL_HEAD + System.currentTimeMillis() + getRandomCode(5);
     }
 
+    public static String getMenusCode() {
+        return CodeRegEx.MENUS_CODE_HEAD + System.currentTimeMillis() + getRandomCode(5);
+    }
+
+    public static String getRolesCode() {
+        return CodeRegEx.ROLES_CODE_HEAD + System.currentTimeMillis() + getRandomCode(5);
+    }
+
     /**
      * 获取随机字母长度
      *

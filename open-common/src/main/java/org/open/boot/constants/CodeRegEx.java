@@ -24,4 +24,14 @@ public interface CodeRegEx {
      * 商品规格详情编码头
      */
     String GOODS_SKU_DETAIL_HEAD = "GD";
+
+    /**
+     * 菜单编码头
+     */
+    String MENUS_CODE_HEAD = "M";
+
+    /**
+     * 角色编码头
+     */
+    String ROLES_CODE_HEAD = "R";
 }
